@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -7,21 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  //private map: google.maps.Map | undefined
+  options: google.maps.MapOptions = {
+    center: {lat: 45.64550, lng: 25.58719},
+    zoom: 12
+  };
+
+  apiLoaded: Observable<boolean>;
   
-  constructor() { }
+  constructor(httpClient: HttpClient) {
+    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyCO-radFmBvWu8enR_JlVnyx89dMb_LBTA', 'callback')
+        .pipe(
+          map(() => true),
+          catchError(() => of(false)),
+        );
+   }
 
   ngOnInit(): void {
-    // let loader = new Loader({
-    //   apiKey: 'AIzaSyCO-radFmBvWu8enR_JlVnyx89dMb_LBTA'
-    // })
-
-    // loader.load().then(() => {
-    //   new google.maps.Map(document.getElementById("map") as HTMLElement,{
-    //     center: { lat: 46.5, lng: 25.3},
-    //     zoom: 6
-    //   })
-    // })
-
   }
 }

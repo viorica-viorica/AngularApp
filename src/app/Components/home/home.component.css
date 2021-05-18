@@ -31,6 +31,8 @@ hr{
     margin-right: auto;
 }
 
-agm-map {
-    height: 300px;
+google-map {
+    height: 300px auto;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "~12.0.0",
     "@angular/cdk": "^11.2.12",
     "@angular/common": "~12.0.0",
@@ -28,6 +29,7 @@
     "@ngbmodule/material-carousel": "^0.7.1",
     "@ngmodule/material-carousel": "^0.6.0",
     "@types/chart.js": "^2.9.32",
+    "@types/googlemaps": "^3.43.3",
     "angular-bootstrap-md": "^11.1.0",
     "angular-responsive-carousel": "^2.0.2",
     "animate.css": "^4.1.1",
@@ -56,6 +58,7 @@
     "@angular-devkit/build-angular": "^12.0.0",
     "@angular/cli": "~12.0.0",
     "@angular/compiler-cli": "~12.0.0",
+    "@angular/google-maps": "^12.0.0",
     "@angular/localize": "^12.0.0",
     "@igniteui/angular-schematics": "~11.0.700",
     "@types/hammerjs": "^2.0.36",

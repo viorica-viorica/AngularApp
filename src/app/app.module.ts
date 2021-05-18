@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-//import { AgmCoreModule } from '@agm/core';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,8 +58,11 @@ import { GalleryComponent } from './Components/home/gallery/gallery.component';
     IgxToggleModule,
     NgbModule,
     MDBBootstrapModule.forRoot(),
+    GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule
     // AgmCoreModule.forRoot({
-    //   apiKey: 'ADD GOOGLE API KEY'
+    //   apiKey: 'AIzaSyCO-radFmBvWu8enR_JlVnyx89dMb_LBTA'
     // })
   ],
   providers: [],
