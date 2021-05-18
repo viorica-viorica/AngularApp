@@ -1,0 +1,108 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container{
+  -webkit-font-smoothing: antialiased;
+  font: normal 16px Roboto,arial,sans-serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+mat-toolbar{
+  color:seashell;
+  background-color: rgba(17, 16, 16, 0.815);
+  transition-property: text;
+}
+
+mat-toolbar a:hover{
+  color: darkgray;
+}
+
+mat-toolbar .login_btn{
+  background: linear-gradient(to right,#75213d,#dc990f);
+  color: rgb(250, 246, 246);
+  transition-property: text;
+}
+
+mat-toolbar .login_btn:hover{
+  color:rgb(61, 60, 60);
+}
+
+mat-sidenav .logout_btn{
+  background: linear-gradient(to right,#75213d,#dc990f);
+  color: rgb(250, 246, 246);
+  width: 150px;
+  height: 45px;
+  left: 16%;
+  margin-top: 40px;
+  padding-left: 1%;
+  padding-right: 1%;
+  line-height: 47px;
+  transition-property: text;
+}
+
+mat-sidenav .logout_btn:hover{
+  color:rgb(61, 60, 60);
+}
+
+mat-sidenav-container{
+  height: 100vh!important;
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../../../assets/White-Mountain-Property-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+mat-sidenav, mat-sidenav-content{
+  padding: 16px;
+}
+
+mat-sidenav{
+  background-color: rgb(25, 27, 27);
+  width: 230px;
+  padding: 2em 0em;
+  box-shadow: 0px 0px 10px 3px grey;
+  padding-top: 100px;
+  position: fixed;
+  left: 0;
+}
+
+mat-sidenav .profile-image{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+mat-sidenav h4{
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+mat-sidenav ul{
+  margin-left: -40px;
+}
+
+mat-sidenav a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 60px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+mat-sidenav a:hover{
+  background: linear-gradient(to right,#75213d,#dc990f);
+}
+
+mat-sidenav i{
+  padding-right: 10px;
+}
+

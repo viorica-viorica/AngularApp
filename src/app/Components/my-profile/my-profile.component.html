@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card-profile">
+        <div class="title">
+            <h4>Profilul meu</h4>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-5 m-auto profile">
+                <img src="../../../assets/profile-photo.jpg" alt="profile photo" class="profile-photo"><br>
+                <div class="user-name" style="text-align: center;">
+                    <h5>Nume utilizator</h5>
+                </div>
+                <button type="button" class="edit-button">Editează poza de profil</button>
+            </div>
+            
+            <hr>
+            <div class="col-md-7 m-auto profile-form">
+                <div class="choose-button">
+                    <button type="button" (click)="toggleEditProfile()" class="button">Editare date personale</button>
+                    <button type="button" (click)="toggleEditPassword()" class="button">Schimbă parola</button>
+                </div>
+    
+                <form [hidden] = "isHiddenEditProfileForm" class="form-group">
+                    <label for="last-name">Nume</label>
+                    <input type="text" name="last-name" class="form-control">
+                    <label for="first-name">Prenume</label>
+                    <input type="text" name="first-name" class="form-control">
+                    <label for="adress">Adresa</label>
+                    <input type="text" name="adress" class="form-control">
+                    <label for="city">Localitate</label>
+                    <input type="text" name="city" class="form-control">
+                    <label for="region">Județ</label>
+                    <input type="text" name="region" class="form-control">
+                    <label for="country">Țara</label>
+                    <input type="text" name="country" class="form-control"><br>
+    
+                    <button type="submit" class="button">Actualizează datele</button>
+                </form>
+    
+                <form [hidden] = "isHiddenEditPasswordForm" class="form-group">
+                    <label for="new-password">Introduceți noua parolă</label>
+                    <input type="text" name="new-password" class="form-control">
+                    <label for="confirm-password">Confirmați parola</label>
+                    <input type="text" name="confirm-password" class="form-control"><br>
+    
+                    <button type="submit" class="button">Resetează parola</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

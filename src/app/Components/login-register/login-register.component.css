@@ -1,0 +1,128 @@
+.container{
+    color:rgb(241, 236, 232);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-family: 'Dancing Script';
+}
+
+.formular{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    background: rgba(0,0,0,0.8);
+    margin: 3% auto;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 3px grey;
+  }
+  
+  .button{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin:5px auto;
+    border: 0;
+    outline: none;
+    background: linear-gradient(to right,#75213d,#dc990f);
+    border-radius: 30px;
+    color: #fff;
+  }
+
+  .button:hover{
+    color:rgb(61, 60, 60);
+  }
+  
+  .input-group{
+    top:10px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+  }
+
+  .form-title{
+    text-align: center!important;
+    margin: auto;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    box-shadow: 0 25px 20px -20px #ffffffb9;
+    font: normal 16px Roboto,arial,sans-serif;
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .form-control{
+    width: 100%;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #fff;
+    border-radius: 0px 5px;
+    outline: none;
+    background: transparent;
+    color:white;
+    font-size: 16px!important;
+  }
+  
+  .form-group{
+    width: 100%;
+    margin: 3px;
+    padding: 0!important;
+  }
+  
+  .check-box{
+    margin: 30px 10px 30px 0!important;
+  }
+
+  .forgottenButton{
+    margin: 0 0 0 160px;
+    width: 120px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    font-family: 'Dancing Script';
+    text-decoration-line: underline;
+    transition-property: text;
+  }
+
+  .forgottenButton:hover{
+    color:darkgray;
+  }
+  
+  p{
+    margin-top: 0;
+    padding-top: 0;
+    text-align: left;
+    size: 10px;
+    font: normal 16px Roboto,arial,sans-serif;
+    font-family: 'Dancing Script';
+  }
+
+  .gen{
+    margin: 0 3% auto;
+    font-size:12px;
+  
+  }
+  
+  #masculin{
+    margin-left:10%;
+  }
+  
+  #feminin{
+    margin-left:10%;
+  }
+  
+  #logare{
+    left: 50px;
+  }
+  
+  #inregistrare{
+    left: 50px;
+  }
+
+  #parola_uitata{
+    left: 50px;
+  }
+  

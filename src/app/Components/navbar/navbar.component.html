@@ -1,0 +1,38 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <div class="sidenav-menu">
+            <div style="text-align: center;">
+                <img src="../../../assets/profile-photo.jpg" class="profile-image">
+                <h4>Nume utilizator</h4>
+            </div>
+            <ul style="list-style-type:none">
+                <li><a routerLink="home" (click)="sidenav.toggle()"><i class="fas fa-home"></i>Acasă</a></li>
+                <li><a routerLink="my-profile" (click)="sidenav.toggle()"><i class="fas fa-address-card"></i>Profilul meu</a></li>
+                <li><a routerLink="my-restaurants" (click)="sidenav.toggle()"><i class="fas fa-utensils"></i>Restaurantele mele</a></li>
+                <li><a routerLink="my-hotels" (click)="sidenav.toggle()"><i class="fas fa-hotel"></i>Cazarea mea</a></li>
+            </ul>  
+            <div>
+                <a class="logout_btn" mat-raised-button routerLink="\">Deconectare</a>
+            </div> 
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar class="mat-elevation-z8">
+            <button mat-icon-button aria-label="menu icon" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Brașov</span>
+
+            <div class="spacer"></div>
+   
+            <a mat-button routerLink="home">Acasă</a>
+            <a mat-button routerLink="hotels">Hoteluri</a>
+            <a mat-button routerLink="restaurants">Restaurante</a>
+            <a class="login_btn" mat-raised-button routerLink="login-register">Autentificare/Înregistrare</a>
+        </mat-toolbar>
+        <div class="page-content">
+            <router-outlet></router-outlet>
+        </div>
+   
+    </mat-sidenav-content>
+</mat-sidenav-container>

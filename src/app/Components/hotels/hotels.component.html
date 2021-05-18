@@ -1,0 +1,112 @@
+<div class="container">
+    <section class="top-side">
+        <div class="title">
+            <h2>Cazare</h2>
+        </div>
+        <div class="row reservation">
+            <div class="col-md-4 m-auto">
+                <app-carousel></app-carousel>
+            </div>
+
+            <div class="col-md-8 m-auto">
+                <div class="row details">
+                    <div class="col-md-6 m-auto">
+                        <div class="input-date">
+                            <label>Data cazării: </label><br>
+                            <input type="date" class="calendar">
+                        </div>
+                        <div class="output-date">
+                            <label>Data decazării: </label><br>
+                            <input type="date" class="calendar">
+                        </div>
+                    </div>
+                    
+                    <div class="guests col-md-6 m-auto">
+                        <label>Preferințe:</label><br>
+                        <div class="row rooms">
+                            <div class="col-6">
+                                <i class="fas fa-bed"></i>
+                                <label> Camere: </label>
+                            </div>
+                            
+                            <div class="col-6 m-auto input-dates">
+                                <div class="input-group input-number-group">
+                                    <div class="input-group-button">
+                                        <button class="input-number-decrement" (click)= "decrement('rooms')">-</button>
+                                    </div>
+                                    <input class="input-number" type="number" [(ngModel)]="rooms" value="{{rooms}}">
+                                    <div class="input-group-button">
+                                        <button class="input-number-increment" (click)= "increment('rooms')">+</button>
+                                    </div>
+                                </div> 
+                            </div>     
+                        </div>
+
+                        <div class="row adults">
+                            <div class="col-6 m-auto">
+                                <i class="fas fa-users"></i>
+                                <label> Adulți: </label>
+                            </div>
+                            
+                            <div class="col-6 m-auto input-dates">
+                                <div class="input-group input-number-group">
+                                    <div class="input-group-button">
+                                        <button class="input-number-decrement" (click)= "decrement('adults')">-</button>
+                                    </div>
+                                    <input class="input-number" type="number" [(ngModel)]="adults" value="{{adults}}">
+                                    <div class="input-group-button">
+                                        <button class="input-number-increment" (click)= "increment('adults')">+</button><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row children">
+                            <div class="col-6 m-auto">
+                                <i class="fas fa-baby"></i>
+                                <label> Copii: </label>
+                            </div>
+                            
+                            <div class="col-6 m-auto input-dates">
+                                <div class="input-group input-number-group">
+                                    <div class="input-group-button">
+                                        <button class="input-number-decrement" (click)= "decrement('children')">-</button>
+                                    </div>
+                                    <input class="input-number" type="number" [(ngModel)]="children" value="{{children}}">
+                                    <div class="input-group-button">
+                                        <button class="input-number-increment" (click)= "increment('children')">+</button>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row choose-button">
+                    <button class="button">Caută</button>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <section class="second-side">
+        <div class="row sleep">
+            <p>„Nimic nu te face să te simți mai bine decât atunci când intri într-un pat de hotel, iar cearșafurile se simt atât de bine.” - Bobby Berk</p>
+        </div>
+        <hr>
+        <div class="row hotel">
+            <div class="col-md-4 image-hotel">
+                <img src="../../../assets/Carousel/kronwell.jpg" alt="">
+            </div>
+            <div class="col-md-5 name-hotel">
+                <h5>Hotel Kronwell</h5>
+                <p>Adresa: </p>
+            </div>
+            <div class="col-md-3 price">
+                <h6>Pret:</h6>
+            </div>
+        </div>
+        <hr>
+
+    </section>
+</div>

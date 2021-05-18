@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row formular">
+      <div class="col-md-9"></div>
+
+        <form [hidden] = "isHiddenLoginForm" id="logare" class="input-group" action="#" method="post">
+          <div class="form-title">
+            <h4>Autentificare</h4>
+          </div><br>    
+          <div class="form-group">
+                <br><input type="text" name="nume_utilizator" placeholder="Nume utilizator" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <input type="password" name="parola" placeholder="Parola" class="form-control" required><br>
+              </div>
+              <div class="form-group-logare">
+                  <button type="button" class="forgottenButton" (click)="toggleForgottenPassword()">Ați uitat parola?</button>
+              </div><br><br>
+              <button type="submit" class="button" >Autentificare</button><br>
+              <button type="button" (click)="toggleRegister()" class="button">Înregistrare</button>
+        </form>
+
+        <form [hidden] = "isHiddenRegisterForm" id="inregistrare" class="input-group" action="#" method="post">
+          <div class="form-title text-center py-2">
+            <h4>Înregistrare</h4>
+          </div><br>    
+          <div class="form-group">
+            <input type="text" name="nume_prenume" placeholder="Nume și Prenume" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="nr_telefon" placeholder="Număr de telefon" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="adr_email" placeholder="E-mail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="nume_utilizator" placeholder="Nume utilizator" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="parola"placeholder="Parola" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <div class="gen">
+              <label><br>Gen</label>
+              <input type="radio" id="masculin" name="gen" value="M">
+              <label for="masculin"> M</label>
+              <input type="radio" id="feminin" name="gen" value="F">
+              <label for="feminin"> F</label>
+            </div>
+          </div><br>
+          <button type="submit" class="button" >Înregistrare</button><br>
+          <button type="button" (click)="toggleLogin()" class="button">Autentificare</button>
+        </form>
+
+        <form [hidden]="isHiddenForgottenPass" id="parola_uitata" class="input-group" action="#" method="post">
+          <div class="form-title">
+            <h4>Ați uitat parola?</h4>
+          </div><br>    
+          <div class="form-group">
+            <input type="text" name="adr_email" placeholder="E-mail" class="form-control" required><br>
+          </div>
+          <div class="form-text">
+            <p>Vă vom trimite un e-mail cu un link de resetare a parolei.</p>
+          </div>
+          <button type="submit" class="button" >Trimiteți e-mail de resetare</button><br>
+          <button type="button" (click)="toggleLogin()" class="button" >Anulare</button>
+        </form>
+      </div>
+    </div>
