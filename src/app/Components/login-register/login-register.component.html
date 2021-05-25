@@ -15,8 +15,10 @@
               <div class="form-group-logare">
                   <button type="button" class="forgottenButton" (click)="toggleForgottenPassword()">Ați uitat parola?</button>
               </div><br><br>
-              <button type="submit" class="button" >Autentificare</button><br>
-              <button type="button" (click)="toggleRegister()" class="button">Înregistrare</button>
+              <div class="button-group">
+                <button type="submit" class="button" >Autentificare</button>
+                <button type="button" (click)="toggleRegister()" class="button">Înregistrare</button>
+              </div>
         </form>
 
         <form [hidden] = "isHiddenRegisterForm" id="inregistrare" class="input-group" action="#" method="post">
@@ -37,18 +39,11 @@
           </div>
           <div class="form-group">
             <input type="password" name="parola"placeholder="Parola" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <div class="gen">
-              <label><br>Gen</label>
-              <input type="radio" id="masculin" name="gen" value="M">
-              <label for="masculin"> M</label>
-              <input type="radio" id="feminin" name="gen" value="F">
-              <label for="feminin"> F</label>
-            </div>
-          </div><br>
-          <button type="submit" class="button" >Înregistrare</button><br>
-          <button type="button" (click)="toggleLogin()" class="button">Autentificare</button>
+          </div>   
+          <div class="button-group">
+            <button type="submit" class="button" >Înregistrare</button>
+            <button type="button" (click)="toggleLogin()" class="button">Autentificare</button>
+          </div>       
         </form>
 
         <form [hidden]="isHiddenForgottenPass" id="parola_uitata" class="input-group" action="#" method="post">
@@ -61,8 +56,10 @@
           <div class="form-text">
             <p>Vă vom trimite un e-mail cu un link de resetare a parolei.</p>
           </div>
-          <button type="submit" class="button" >Trimiteți e-mail de resetare</button><br>
-          <button type="button" (click)="toggleLogin()" class="button" >Anulare</button>
+          <div class="button-group">
+            <button type="submit" class="button" >Trimiteți e-mail de resetare</button>
+            <button type="button" (click)="toggleLogin()" class="button" >Anulare</button>
+          </div>
         </form>
       </div>
     </div>

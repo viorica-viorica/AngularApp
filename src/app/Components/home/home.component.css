@@ -25,14 +25,11 @@ hr{
     background: white;
 }
 
-.about-brasov{
+.brasov{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
 
-google-map {
-    height: 300px auto;
-    margin-left: auto;
-    margin-right: auto;
-}
+
+  

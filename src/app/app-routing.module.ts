@@ -1,3 +1,8 @@
+import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
+import { ToDoComponent } from './Components/home/to-do/to-do.component';
+import { EatComponent } from './Components/home/eat/eat.component';
+import { StayComponent } from './Components/home/stay/stay.component';
+import { MapComponent } from './Components/home/map/map.component';
 import { HomeComponent } from './Components/home/home.component';
 import { CarouselComponent } from './Components/hotels/carousel/carousel.component';
 import { LoginRegisterComponent } from './Components/login-register/login-register.component';
@@ -42,6 +47,26 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  {
+    path: 'to-do',
+    component: ToDoComponent
+  },
+  {
+    path: 'stay',
+    component: StayComponent
+  },
+  {
+    path: 'eat',
+    component: EatComponent
+  },
+  {
+    path: 'items-carousel',
+    component: ItemsCarouselComponent
   }
 ];
 

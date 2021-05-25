@@ -7,7 +7,7 @@
 
 .formular{
     width: 380px;
-    height: 480px;
+    height: 450px;
     position: relative;
     background: rgba(0,0,0,0.8);
     margin: 3% auto;
@@ -16,6 +16,11 @@
     border-radius: 15px;
     box-shadow: 0px 0px 10px 3px grey;
   }
+
+  .button-group{
+    margin-top: 5%;
+    width: 100%;
+  }
   
   .button{
     width: 85%;
@@ -23,6 +28,7 @@
     cursor: pointer;
     display: block;
     margin:5px auto;
+    margin-bottom: 3%;
     border: 0;
     outline: none;
     background: linear-gradient(to right,#75213d,#dc990f);

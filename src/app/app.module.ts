@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
+import { CarouselModule, WavesModule, MDBBootstrapModulesPro } from 'ng-uikit-pro-standard'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,11 @@ import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './Components/home/home.component';
 import { GalleryComponent } from './Components/home/gallery/gallery.component';
+import { MapComponent } from './Components/home/map/map.component';
+import { ToDoComponent } from './Components/home/to-do/to-do.component';
+import { StayComponent } from './Components/home/stay/stay.component';
+import { EatComponent } from './Components/home/eat/eat.component';
+import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
 
 
 @NgModule({
@@ -41,7 +47,12 @@ import { GalleryComponent } from './Components/home/gallery/gallery.component';
     MyHotelsComponent,
     CarouselComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    MapComponent,
+    ToDoComponent,
+    StayComponent,
+    EatComponent,
+    ItemsCarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -57,13 +68,12 @@ import { GalleryComponent } from './Components/home/gallery/gallery.component';
     IgxButtonModule,
     IgxToggleModule,
     NgbModule,
-    MDBBootstrapModule.forRoot(),
     GoogleMapsModule,
     HttpClientModule,
-    HttpClientJsonpModule
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyCO-radFmBvWu8enR_JlVnyx89dMb_LBTA'
-    // })
+    HttpClientJsonpModule,
+    CarouselModule,
+    WavesModule,
+    MDBBootstrapModulesPro.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+<div class="content">
+    <h5>Despre Brașov</h5>
+        <div class="row about-brasov">
+            <div class="col-md-6 description">
+                <p>Brașov este reședința și cel mai mare oraș al judeșului Brașov, Transilvania, România.
+                    Aflat între marile trecători ale Carpaților (Bran, Predeal, Oituz, Buzău), Brașovul devine înca în urma cu 700 de ani un punct de 
+                    legătură între Transilvania, Țara Românească și Moldova, precum și cu centrul Europei și Orient și totodată un puternic centru 
+                    meșteșugăresc, comercial și cultural.
+                    În prezent, Brașovul este un oraș privilegiat; între granițele lui puteți să vă bucurați de crestele semețe ale munților Postăvaru, 
+                    Bucegi, Piatra Mare, de Muntele Tâmpa și de una din cele mai râvnite stațiuni din România - Poiana Brașov. 
+                </p>
+            </div>
+            <div class="col-md-6 m-auto maps" *ngIf="apiLoaded | async">
+                <google-map [options]="options"></google-map>
+                <button type="submit" class="button">Programează o călătorie</button>
+            </div>
+        </div>
+</div>

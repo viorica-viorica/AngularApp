@@ -47,7 +47,7 @@ mat-sidenav .logout_btn:hover{
 
 mat-sidenav-container{
   height: 100vh!important;
-  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../../../assets/White-Mountain-Property-1.jpg);
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../../../assets/White-Mountain-Property-1.jpg)!important;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -105,4 +105,3 @@ mat-sidenav a:hover{
 mat-sidenav i{
   padding-right: 10px;
 }
-
