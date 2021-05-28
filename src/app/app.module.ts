@@ -33,6 +33,10 @@ import { ToDoComponent } from './Components/home/to-do/to-do.component';
 import { StayComponent } from './Components/home/stay/stay.component';
 import { EatComponent } from './Components/home/eat/eat.component';
 import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
+import { AdminPageComponent } from './Components/admin-page/admin-page.component';
+import { AdminRestaurantsComponent } from './Components/admin-page/admin-restaurants/admin-restaurants.component';
+import { AdminUsersComponent } from './Components/admin-page/admin-users/admin-users.component';
+import { AdminHotelsComponent } from './Components/admin-page/admin-hotels/admin-hotels.component';
 
 
 @NgModule({
@@ -52,7 +56,11 @@ import { ItemsCarouselComponent } from './Components/home/items-carousel/items-c
     ToDoComponent,
     StayComponent,
     EatComponent,
-    ItemsCarouselComponent
+    ItemsCarouselComponent,
+    AdminPageComponent,
+    AdminRestaurantsComponent,
+    AdminUsersComponent,
+    AdminHotelsComponent
   ],
   imports: [
     BrowserModule,

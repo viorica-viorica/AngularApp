@@ -1,3 +1,7 @@
+import { AdminHotelsComponent } from './Components/admin-page/admin-hotels/admin-hotels.component';
+import { AdminUsersComponent } from './Components/admin-page/admin-users/admin-users.component';
+import { AdminRestaurantsComponent } from './Components/admin-page/admin-restaurants/admin-restaurants.component';
+import { AdminPageComponent } from './Components/admin-page/admin-page.component';
 import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
 import { ToDoComponent } from './Components/home/to-do/to-do.component';
 import { EatComponent } from './Components/home/eat/eat.component';
@@ -67,6 +71,22 @@ const routes: Routes = [
   {
     path: 'items-carousel',
     component: ItemsCarouselComponent
+  },
+  {
+    path: 'admin-page',
+    component: AdminPageComponent
+  },
+  {
+    path: 'admin-users',
+    component: AdminUsersComponent
+  },
+  {
+    path: 'admin-restaurants',
+    component: AdminRestaurantsComponent
+  },
+  {
+    path: 'admin-hotels',
+    component: AdminHotelsComponent
   }
 ];
 

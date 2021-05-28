@@ -61,5 +61,21 @@
             <button type="button" (click)="toggleLogin()" class="button" >Anulare</button>
           </div>
         </form>
+
+        <form [hidden]="isHiddenResetPass" id="reset_pass" class="input-group" action="#" method="post">
+          <div class="form-title">
+            <h4>Resetează parola</h4>
+          </div><br>    
+          <div class="form-group">
+            <input type="text" name="new_password" placeholder="Introduceți noua parolă" class="form-control" required><br>
+          </div>
+          <div class="form-group">
+            <input type="text" name="cofirm_password" placeholder="Confirmați noua parolă" class="form-control" required><br>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="button">Resetare parolă</button>
+            <button type="button" (click)="toggleLogin()" class="button" >Anulare</button>
+          </div>
+        </form>
       </div>
     </div>

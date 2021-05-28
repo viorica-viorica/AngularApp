@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="formular">
+        <div class="title">
+            <h4>Administrator</h4>
+        </div>
+        <hr>     
+    
+        <div class="forms">
+            <div class="button-group row">
+                <button type="button" (click)="toggleUsers()" class="btn button col-md-4 m-auto">Utilizatori</button>
+                <button type="button" (click)="toggleRestaurants()" class="btn button col-md-4 m-auto">Restaurante</button>
+                <button type="button" (click)="toggleHotels()" class="btn button col-md-4 m-auto">Hoteluri</button>
+            </div>
+            <div class="row form-card">
+                <app-admin-users [hidden] = "isHiddenUsersForm"></app-admin-users>
+                <app-admin-restaurants [hidden] = "isHiddenRestaurantsForm"></app-admin-restaurants>
+                <app-admin-hotels [hidden] = "isHiddenHotelsForm"></app-admin-hotels>
+            </div>
+        </div>
+    </div>
+</div>
