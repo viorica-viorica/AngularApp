@@ -7,7 +7,7 @@
 
 .formular{
     width: 380px;
-    height: 450px;
+    height: auto;
     position: relative;
     background: rgba(0,0,0,0.8);
     margin: 3% auto;
@@ -19,6 +19,7 @@
 
   .button-group{
     margin-top: 5%;
+    margin-bottom: 15%;
     width: 100%;
   }
   
@@ -42,7 +43,7 @@
   
   .input-group{
     top:10px;
-    position: absolute;
+    /* position: absolute; */
     width: 280px;
     transition: .5s;
   }

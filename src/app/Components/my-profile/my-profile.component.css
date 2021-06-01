@@ -41,6 +41,10 @@ hr{
   .button:hover{
     color:rgb(61, 60, 60);
   }
+
+  .update-button{
+    margin-bottom: 7%;
+  }
   
   .input-group{
     top:10px;

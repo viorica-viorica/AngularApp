@@ -4,7 +4,7 @@
     font: normal 16px Roboto,arial,sans-serif;
     font-family: 'Dancing Script', cursive;
     width: 100%;
-    height: 100vh;
+    height: auto;
     position: relative;
     background: rgba(0,0,0,0.8);
     margin-top: 1%;
@@ -17,7 +17,7 @@
 }
 
 .restaurants{
-    height: 240px;
+    height: auto;
 }
 
 .title{

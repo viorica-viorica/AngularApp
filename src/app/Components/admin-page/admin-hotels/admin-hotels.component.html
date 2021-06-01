@@ -1,4 +1,4 @@
-<form id="hotels" class="hotels" action="#" method="post">
+<form [formGroup]="hotelSaveForm" id="hotels" class="hotels">
     <div class="form-title">
         <h4>Hoteluri</h4><hr>
     </div>
@@ -8,40 +8,91 @@
             <div class="form-group">
                 <img src="../../../assets/Hotels/hotel-icon.jpg" class="image" alt="">
                 <button class="button">Încarcă fotografia</button>
+
+                <label for="customFile">Image</label>
+                <input class="upload" type="file" accept=".jpg,.jpef,.png,.gif" id="customFile"
+                    (change)="uploadImage($event)" formControlName="hotelPhoto" required>
+                <div class="file-validation">{{wrongImageFormat}}</div>
             </div>
         </div>
         
         <div class="add-hotel col-md-7 m-auto">
             <div class="form-group">
-                <input type="text" name="hotel_name" placeholder="Nume hotel" class="form-control" required>
+                <input type="text" name="hotel_name" [(ngModel)]="Name" formControlName="hotelName" placeholder="Nume hotel" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="hotel_adress" placeholder="Adresa" class="form-control" required>
+                <input type="text" name="hotel_adress" [(ngModel)]="Adress" formControlName="hotelAdress" placeholder="Adresa" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="hotel_rooms" placeholder="Număr camere disponibile" class="form-control" required>
+                <input type="text" name="hotel_rooms" [(ngModel)]="Rooms" formControlName="hotelRooms" placeholder="Număr camere disponibile" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="adults" placeholder="Adulți" class="form-control" required>
+                <input type="text" name="adults" [(ngModel)]="Adults" formControlName="hotelAdults" placeholder="Adulți" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="children" placeholder="Copii" class="form-control" required>
+                <input type="text" name="children" [(ngModel)]="Children" formControlName="hotelChildren" placeholder="Copii" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="hotel_price" placeholder="Preț" class="form-control" required>
+                <input type="text" name="hotel_price" [(ngModel)]="Price" formControlName="hotelPrice" placeholder="Preț" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="hotel_latitude" placeholder="Latitudine" class="form-control" required>
+                <input type="text" name="hotel_latitude" [(ngModel)]="Latitude" formControlName="hotelLatitude" placeholder="Latitudine" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="text" name="hotel_longitude" placeholder="Longitudine" class="form-control" required>
+                <input type="text" name="hotel_longitude" [(ngModel)]="Longitude" formControlName="hotelLongitude" placeholder="Longitudine" class="form-control" required>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="button">Adaugă hotel</button>
+                <div class="alert-msg">
+                    <div style="color: red; font-size: 16px">
+                        {{emptyData}}
+                    </div>
+                    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                        <strong>Well done!</strong> {{ successMessage }}
+                    </div>
+                    <div *ngIf="failMessage" class="alert alert-danger" role="alert">
+                        <strong>Uups!</strong> {{ failMessage }}
+                    </div>
+                </div>
+
+                <button (click)="checkData()" type="submit" class="button btn btn-outline-success">Adaugă hotel</button>
             </div>
         </div>
-    </div><hr>    
+    </div>  
     
-    <p>list of hotels</p>
+    <!-- <p>list of hotels</p> -->
+    <div class="table-responsive-md">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nume Hotel</th>
+                    <th>Adresa hotelului</th>
+                    <th>Număr camere</th>
+                    <th>Adulți</th>
+                    <th>Copii</th>
+                    <th>Preț</th>
+                    <th>Opțiuni</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <tr *ngFor="let dataItem of HotelsList">
+                    <td>{{dataItem.Name}}</td>
+                    <td>{{dataItem.Adress}}</td>
+                    <td>{{dataItem.Rooms}}</td>
+                    <td>{{dataItem.Adults}}</td>
+                    <td>{{dataItem.Children}}</td>
+                    <td>{{dataItem.Price}}</td>
+                    <td>
+                        <button type="button" class="edit btn btn-light mr-1">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <button type="button" class="delete btn btn-light mr-1" (click)="deleteItem(dataItem)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </form>

@@ -69,3 +69,10 @@ hr{
   .components{
     margin-top: 3%;
   }
+
+  table{
+    margin-top: 3%;
+    width: 96%;
+    text-align: center;
+    color:rgb(241, 236, 232);
+  }

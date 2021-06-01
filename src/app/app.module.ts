@@ -22,7 +22,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { IgxButtonModule, IgxToggleModule } from "igniteui-angular";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,7 +37,11 @@ import { AdminPageComponent } from './Components/admin-page/admin-page.component
 import { AdminRestaurantsComponent } from './Components/admin-page/admin-restaurants/admin-restaurants.component';
 import { AdminUsersComponent } from './Components/admin-page/admin-users/admin-users.component';
 import { AdminHotelsComponent } from './Components/admin-page/admin-hotels/admin-hotels.component';
-
+import { HotelServiceService } from './Services/hotel-service/hotel-service.service';
+import { ReservationServiceService } from './Services/reservation-service/reservation-service.service';
+import { RestaurantServiceService } from './Services/restaurant-service/restaurant-service.service';
+import { TouristicObjectiveServiceService } from './Services/touristic-objective-service/touristic-objective-service.service';
+import { UsersServiceService } from './Services/users-service/users-service.service';
 
 @NgModule({
   declarations: [
@@ -72,6 +76,7 @@ import { AdminHotelsComponent } from './Components/admin-page/admin-hotels/admin
     MatSidenavModule,
     MatListModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSlideToggleModule,
     IgxButtonModule,
     IgxToggleModule,
@@ -83,7 +88,13 @@ import { AdminHotelsComponent } from './Components/admin-page/admin-hotels/admin
     WavesModule,
     MDBBootstrapModulesPro.forRoot()
   ],
-  providers: [],
+  providers: [
+    HotelServiceService,
+    ReservationServiceService,
+    RestaurantServiceService,
+    TouristicObjectiveServiceService,
+    UsersServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
