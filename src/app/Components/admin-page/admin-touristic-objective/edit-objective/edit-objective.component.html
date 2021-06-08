@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="form-title">
+        <h4>Actualizează un obiectiv turistic</h4>
+    </div>
+    <form #f="ngForm" (ngSubmit)="editObjective(f)"><hr>
+        <div class="row components">
+            <div class="col-md-5 m-auto">
+                <div class="form-group">
+                    <img src="../../../../../assets/Objectives/objective-icon.jpg" class="image" alt="">
+                    <input class="upload py-2" type="file" accept=".jpg,.jpef,.png,.gif" id="customFile"
+                        (change)="uploadImage($event)" name="photo" [(ngModel)]="objective.photo" required>
+                    <div class="file-validation">{{wrongImageFormat}}</div>
+                    <button class="button">Încarcă fotografia</button>       
+                </div>
+            </div>
+            
+            <div class="edit-objective col-md-7 m-auto container-fluid">
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="id">ID: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="objectiveId" [(ngModel)]="objective.objectiveId"
+                        placeholder="Id" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="name">Denumire: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="name" [(ngModel)]="objective.name"
+                        placeholder="Denumire" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="address">Adresa: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="address" [(ngModel)]="objective.address" 
+                        placeholder="Adresa" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="description">Descriere: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="description" [(ngModel)]="objective.description"
+                        placeholder="Descriere" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="schedule">Program: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="schedule" [(ngModel)]="objective.schedule"
+                        placeholder="Program" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="latitude">Latitudine: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="latitude" [(ngModel)]="objective.latitude"
+                        placeholder="Latitudine" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <label class="col-md-2 m-auto" for="longitude">Longitudine: </label>
+                    <div class="form-group col-md-10 m-auto">
+                        <input type="text" name="longitude" [(ngModel)]="objective.longitude"
+                        placeholder="Longitudine" class="form-control" required>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <div class="alert-msg">
+                        <div style="color: red; font-size: 16px">
+                            {{emptyData}}
+                        </div>
+                        <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                            <strong>Minunat!</strong> {{ successMessage }}
+                        </div>
+                        <div *ngIf="failMessage" class="alert alert-danger" role="alert">
+                            <strong>Uups!</strong> {{ failMessage }}
+                        </div>
+                    </div>
+        
+                    <button type="submit" class="button btn btn-outline-success">Actualizează obiectiv</button>
+                </div>
+            </div>
+        </div>    
+    </form>
+</div>

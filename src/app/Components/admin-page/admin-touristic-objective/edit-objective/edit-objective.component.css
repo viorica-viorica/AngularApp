@@ -1,0 +1,65 @@
+.container{
+  width: 100%;
+}
+
+.form-title{
+    text-align: center!important;
+    margin: auto;
+    font: normal 16px Roboto,arial,sans-serif;
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .form-control{
+      width: 90%;
+      border-left: 0;
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 1px solid #fff;
+      border-radius: 0px 5px;
+      outline: none;
+      background: transparent;
+      color:white;
+      font-size: 16px!important;
+      margin-left: 2%;
+    }
+  
+    .form-group{
+      width: 100%;
+      margin: 3px;
+      padding: 0!important;
+    }
+    
+      .button{
+        width: 60%;
+        padding: 10px 30px;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+        margin-top: 5%;
+        border: 0;
+        outline: none;
+        background: linear-gradient(to right,#75213d,#dc990f);
+        border-radius: 30px;
+        color: #fff;
+      }
+    
+      .button:hover{
+        color:rgb(61, 60, 60);
+      }
+    
+      .edit-objective{
+        margin-top: 10%;
+      }
+    
+      .components{
+        margin-top: 3%;
+      }
+  
+      hr{
+        background-color: white;
+      }
+
+      label{
+        margin-bottom: 0%!important;
+        margin-left: 3%;
+      }

@@ -1,0 +1,43 @@
+<div class="table-responsive-md view-hotels">
+    <div class="form-title">
+        <h4>Hoteluri</h4>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>Nume Hotel</th>
+                <th>Adresa hotelului</th>
+                <th>Număr camere</th>
+                <th>Adulți</th>
+                <th>Copii</th>
+                <th>Preț</th>
+                <th>Latitudine</th>
+                <th>Longitudine</th>
+                <th>Opțiuni</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let dataItem of HotelsList">
+                <!-- <td>{{dataItem.hotelId}}</td> -->
+                <td>{{dataItem.name}}</td>
+                <td>{{dataItem.address}}</td>
+                <td>{{dataItem.rooms}} camere</td>
+                <td>{{dataItem.adults}} adulți</td>
+                <td>{{dataItem.children}} copii</td>
+                <td>{{dataItem.price}} RON</td>
+                <td>{{dataItem.latitude}}</td>
+                <td>{{dataItem.longitude}}</td>
+                <td>
+                    <button type="button" class="edit btn btn-light mr-1" routerLink="../edit-hotel/{{dataItem.hotelId}}">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button type="button" class="delete btn btn-light mr-1" (click)="deleteItem(dataItem)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

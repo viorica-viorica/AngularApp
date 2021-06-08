@@ -1,0 +1,40 @@
+<form id="reservation" class="reservation" action="#" method="post">
+    <div class="form-title">
+        <h5>Rezervări</h5>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>Numele utilizatorului</th>
+                <th>Numele rezervării</th>
+                <th>Data de început</th>
+                <th>Data de final</th>
+                <th>Intervalul orar</th>
+                <th>Preț</th>
+                <th>Opțiuni</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let dataItem of ReservationsList">
+                <!-- <td>{{dataItem.objectiveId}}</td> -->
+                <td>{{dataItem.username}}</td>
+                <td>{{dataItem.reservationName}}</td>
+                <td>{{dataItem.startDate}}</td>
+                <td>{{dataItem.endDate}}</td>
+                <td>{{dataItem.time}}</td>
+                <td>{{dataItem.price}}</td>
+                <td>
+                    <button type="button" class="edit btn btn-light mr-1">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button type="button" class="delete btn btn-light mr-1">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

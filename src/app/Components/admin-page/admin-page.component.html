@@ -3,18 +3,45 @@
         <div class="title">
             <h4>Administrator</h4>
         </div>
-        <hr>     
-    
+        <hr>
+
         <div class="forms">
-            <div class="button-group row">
-                <button type="button" (click)="toggleUsers()" class="btn button col-md-4 m-auto">Utilizatori</button>
-                <button type="button" (click)="toggleRestaurants()" class="btn button col-md-4 m-auto">Restaurante</button>
-                <button type="button" (click)="toggleHotels()" class="btn button col-md-4 m-auto">Hoteluri</button>
-            </div>
-            <div class="row form-card">
-                <app-admin-users [hidden] = "isHiddenUsersForm"></app-admin-users>
-                <app-admin-restaurants [hidden] = "isHiddenRestaurantsForm"></app-admin-restaurants>
-                <app-admin-hotels [hidden] = "isHiddenHotelsForm"></app-admin-hotels>
+            <div class="button-forms m-auto">
+                <div class="btn-group mr-5">
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                        <button class="btn" routerLink="admin-reservation" type="button">Rezervări</button>
+                    </div>
+    
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                        <button class="btn" ngbDropdownToggle>Restaurante</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="button" routerLink="view-restaurants" ngbDropdownItem>Lista restaurante</button>
+                            <button class="button" routerLink="add-restaurant" ngbDropdownItem>Adaugă restaurant</button>
+                        </div>
+                    </div>
+    
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                        <button class="btn" ngbDropdownToggle>Hoteluri</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="button" routerLink="view-hotels" ngbDropdownItem>Lista
+                                hoteluri</button>
+                            <button class="button" routerLink="add-hotel" ngbDropdownItem>Adaugă hotel</button>
+                        </div>
+                    </div>
+    
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                        <button class="btn" ngbDropdownToggle>Obiective turistice</button>
+                        <div class="dropdown-menu" ngbDropdownMenu>
+                            <button class="button" routerLink="view-objectives" ngbDropdownItem>Lista
+                                obiective turistice</button>
+                            <button class="button" routerLink="add-objective" ngbDropdownItem>Adaugă obiectiv</button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
+            <div class="form-card">
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>

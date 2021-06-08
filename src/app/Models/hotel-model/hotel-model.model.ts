@@ -1,12 +1,12 @@
-export interface HotelModel {
-    HotelId: number;
-    Name: string;
-    Adress: string;
-    Price: number;
-    Rooms: number;
-    Adults: number;
-    Children: number;
-    Latitude: number;
-    Longitude: number;
-    Photo: File;
+export class HotelModel {
+    hotelId!: number;
+    name!: string;
+    address!: string;
+    price!: number;
+    rooms!: number;
+    adults!: number;
+    children!: number;
+    latitude!: number;
+    longitude!: number;
+    photo!: File;
 }

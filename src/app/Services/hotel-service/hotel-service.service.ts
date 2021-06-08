@@ -3,44 +3,49 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-const APIUrl = "http://localhost:5000/api/hotel";
-const PhotoUrl = "http://localhost:5000/Photos";
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class HotelServiceService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
+  
+  readonly APIUrl = "http://localhost:5000/api/Hotel";
+  
+  readonly PhotoUrl = "http://localhost:5000/Photos";
 
-  getHotelsList(): Observable<HotelModel[]>{
-    return this.http.get<HotelModel[]>(APIUrl);
+  getHotelsList(): Observable<HotelModel[]> {
+    return this.http.get<HotelModel[]>(this.APIUrl);
   }
 
-  addHotel(hotel: HotelModel){
-    const formData = new FormData();
-    formData.append('Name', hotel.Name);
-    formData.append('Adress', hotel.Adress);
-    formData.append('Price', hotel.Price.toString());
-    formData.append('Rooms', hotel.Rooms.toString());
-    formData.append('Adults', hotel.Adults.toString());
-    formData.append('Children', hotel.Children.toString());
-    formData.append('Latitude', hotel.Latitude.toString());
-    formData.append('Longitude', hotel.Longitude.toString());
-    formData.append('Photo', hotel.Photo);
-    return this.http.post(APIUrl+'/add', formData);
+  getHotel(id: number): Observable<HotelModel>{
+    return this.http.get<HotelModel>(`${this.APIUrl}/${id}`);
   }
 
-  updateHotel(hotel: HotelModel){
-    return this.http.put(APIUrl+'/update/', hotel);
+  addHotel(hotel: HotelModel): Observable<HotelModel> {
+    const newHotel = new HotelModel();
+    newHotel.name = hotel.name;
+    newHotel.address = hotel.address;
+    newHotel.price = hotel.price;
+    newHotel.rooms = hotel.rooms;
+    newHotel.adults = hotel.adults;
+    newHotel.children = hotel.children;
+    newHotel.latitude = hotel.latitude;
+    newHotel.longitude = hotel.longitude;
+    // formData.photo = hotel.photo;
+    return this.http.post<HotelModel>(this.APIUrl, newHotel);
   }
 
-  deleteHotel(val:any){
-    return this.http.delete(APIUrl+'/'+val);
+  updateHotel(id: number, hotel: HotelModel): Observable<HotelModel> {
+    return this.http.put<HotelModel>(`${this.APIUrl}/${id}`, hotel);
   }
 
-  uploadPhoto(val:any){
-    return this.http.post(APIUrl+'/SaveFile', val);
+  deleteHotel(id: number): Observable<HotelModel> {
+    return this.http.delete<HotelModel>(`${this.APIUrl}/${id}`);
+  }
+
+  uploadPhoto(val: any): Observable<HotelModel> {
+    return this.http.post<HotelModel>(this.APIUrl + '/SaveFile', val);
   }
 }

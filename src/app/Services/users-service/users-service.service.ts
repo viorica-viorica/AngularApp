@@ -1,3 +1,4 @@
+import { UsersModel } from './../../Models/users-model/users-model.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,28 +8,42 @@ import { Injectable } from '@angular/core';
 })
 export class UsersServiceService {
 
-  readonly APIUrl = "http://localhost:5000/api";
-  readonly PhotoUrl = "http://localhost:5000/Photos";
-
   constructor(private http:HttpClient) { }
 
-  getUser(): Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/users');
+  readonly APIUrl = "http://localhost:5000/api/Users";
+  readonly PhotoUrl = "http://localhost:5000/Photos";
+
+  getUsersList(): Observable<UsersModel[]>{
+    return this.http.get<UsersModel[]>(this.APIUrl);
   }
 
-  addUser(val:any){
-    return this.http.post(this.APIUrl+'/users', val);
+  getUser(id: number): Observable<UsersModel>{
+    return this.http.get<UsersModel>(`${this.APIUrl}/${id}`);
   }
 
-  updateUser(val:any){
-    return this.http.put(this.APIUrl+'/users', val);
+  addUser(user: UsersModel): Observable<UsersModel>{
+    const newUser = new UsersModel();
+    newUser.firstLastName = user.firstLastName;
+    newUser.phoneNumber = user.phoneNumber;
+    newUser.email = user.email;
+    newUser.username = user.username;
+    newUser.password = user.password;
+    newUser.latitude = user.latitude;
+    newUser.longitude = user.longitude;
+    newUser.isAdmin = user.isAdmin;
+    // newUser.profilePhoto = user.profilePhoto;
+    return this.http.post<UsersModel>(this.APIUrl, newUser);
   }
 
-  deleteUser(val:any){
-    return this.http.delete(this.APIUrl+'/users/'+val);
+  updateUser(id: number, user: UsersModel): Observable<UsersModel>{
+    return this.http.put<UsersModel>(`${this.APIUrl}/${id}`, user);
   }
 
-  uploadPhoto(val:any){
-    return this.http.post(this.APIUrl+'/users/SaveFile', val);
+  deleteUser(id: number): Observable<UsersModel>{
+    return this.http.delete<UsersModel>(`${this.APIUrl}/${id}`);
+  }
+
+  uploadPhoto(val:any): Observable<UsersModel>{
+    return this.http.post<UsersModel>(this.APIUrl+'/SaveFile', val);
   }
 }

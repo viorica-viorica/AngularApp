@@ -1,0 +1,68 @@
+hr{
+  background-color: white;
+  width: 97%;
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+  .button-group{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    width: 100%;
+  }
+  
+  .button{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin:5px auto;
+    margin-bottom: 3%;
+    border: 0;
+    outline: none;
+    background: linear-gradient(to right,#75213d,#dc990f);
+    border-radius: 30px;
+    color: #fff;
+  }
+
+  .button:hover{
+    color:rgb(61, 60, 60);
+  }
+  
+  .input-group{
+    top:10px;
+    width: 100%;
+    transition: .5s;
+  }
+
+  .form-title{
+    width: 100%;
+    font-family: 'Dancing Script', cursive;
+  }
+
+  h4{
+    margin-bottom: 3%;
+    text-align: center;
+  }
+  
+  .form-control{
+    width: 90%;
+    margin: auto;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #fff;
+    border-radius: 0px 5px;
+    outline: none;
+    background: transparent;
+    color:white;
+    font-size: 16px!important;
+  }
+  
+  .form-group{
+    width: 100%;
+    margin: 3px;
+    padding: 0!important;
+  }
+
+  

@@ -1,3 +1,4 @@
+import { RestaurantModel } from './../../Models/restaurant-model/restaurant-model.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -7,28 +8,39 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RestaurantServiceService {
 
-  readonly APIUrl = "http://localhost:5000/api";
-  readonly PhotoUrl = "http://localhost:5000/Photos";
-
   constructor(private http:HttpClient) { }
 
-  getRestaurantList(): Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/restaurant');
+  readonly APIUrl = "http://localhost:5000/api/Restaurant";
+  readonly PhotoUrl = "http://localhost:5000/Photos";
+
+  getRestaurantsList(): Observable<RestaurantModel[]>{
+    return this.http.get<RestaurantModel[]>(this.APIUrl);
   }
 
-  addRestaurant(val:any){
-    return this.http.post(this.APIUrl+'/restaurant', val);
+  getRestaurant(id: number): Observable<RestaurantModel>{
+    return this.http.get<RestaurantModel>(`${this.APIUrl}/${id}`);
   }
 
-  updateRestaurant(val:any){
-    return this.http.put(this.APIUrl+'/restaurant', val);
+  addRestaurant(restaurant: RestaurantModel): Observable<RestaurantModel>{
+    const newRestaurant = new RestaurantModel();
+    newRestaurant.name = restaurant.name;
+    newRestaurant.address = restaurant.address;
+    newRestaurant.schedule = restaurant.schedule;
+    newRestaurant.latitude = restaurant.latitude;
+    newRestaurant.longitude = restaurant.longitude;
+    newRestaurant.photo = restaurant.photo;
+    return this.http.post<RestaurantModel>(this.APIUrl, newRestaurant);
   }
 
-  deleteRestaurant(val:any){
-    return this.http.delete(this.APIUrl+'/restaurant/'+val);
+  updateRestaurant(id: number, restaurant: RestaurantModel): Observable<RestaurantModel>{
+    return this.http.put<RestaurantModel>(`${this.APIUrl}/${id}`, restaurant);
   }
 
-  uploadPhoto(val:any){
-    return this.http.post(this.APIUrl+'/restaurant/SaveFile', val);
+  deleteRestaurant(id: number): Observable<RestaurantModel>{
+    return this.http.delete<RestaurantModel>(`${this.APIUrl}/${id}`);
+  }
+
+  uploadPhoto(val:any): Observable<RestaurantModel>{
+    return this.http.post<RestaurantModel>(this.APIUrl+'/SaveFile', val);
   }
 }

@@ -1,3 +1,4 @@
+import { ReservationModel } from './../../Models/reservation-model/reservation-model.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -7,28 +8,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ReservationServiceService {
 
-  readonly APIUrl = "http://localhost:5000/api";
+  readonly APIUrl = "http://localhost:5000/api/Reservation";
   readonly PhotoUrl = "http://localhost:5000/Photos";
 
   constructor(private http:HttpClient) { }
 
-  getReservationList(): Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/reservation');
+  getReservationsList(): Observable<ReservationModel[]>{
+    return this.http.get<ReservationModel[]>(this.APIUrl);
   }
 
-  addReservation(val:any){
-    return this.http.post(this.APIUrl+'/reservation', val);
+  addReservation(reservation: ReservationModel): Observable<ReservationModel>{
+    return this.http.post<ReservationModel>(this.APIUrl, reservation);
   }
 
-  updateReservation(val:any){
-    return this.http.put(this.APIUrl+'/reservation', val);
+  updateReservation(id: number, reservation: ReservationModel): Observable<ReservationModel>{
+    return this.http.put<ReservationModel>(`${this.APIUrl}/${id}`, reservation);
   }
 
-  deleteReservation(val:any){
-    return this.http.delete(this.APIUrl+'/reservation/'+val);
+  deleteReservation(id: number): Observable<ReservationModel>{
+    return this.http.delete<ReservationModel>(`${this.APIUrl}/${id}`);
   }
 
-  uploadPhoto(val:any){
-    return this.http.post(this.APIUrl+'/reservation/SaveFile', val);
+  uploadPhoto(val:any): Observable<ReservationModel>{
+    return this.http.post<ReservationModel>(this.APIUrl+'/SaveFile', val);
   }
 }

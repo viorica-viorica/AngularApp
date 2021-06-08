@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
+// import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 import { CarouselModule, WavesModule, MDBBootstrapModulesPro } from 'ng-uikit-pro-standard'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,14 +36,26 @@ import { StayComponent } from './Components/home/stay/stay.component';
 import { EatComponent } from './Components/home/eat/eat.component';
 import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
 import { AdminPageComponent } from './Components/admin-page/admin-page.component';
-import { AdminRestaurantsComponent } from './Components/admin-page/admin-restaurants/admin-restaurants.component';
-import { AdminUsersComponent } from './Components/admin-page/admin-users/admin-users.component';
-import { AdminHotelsComponent } from './Components/admin-page/admin-hotels/admin-hotels.component';
 import { HotelServiceService } from './Services/hotel-service/hotel-service.service';
 import { ReservationServiceService } from './Services/reservation-service/reservation-service.service';
 import { RestaurantServiceService } from './Services/restaurant-service/restaurant-service.service';
 import { TouristicObjectiveServiceService } from './Services/touristic-objective-service/touristic-objective-service.service';
 import { UsersServiceService } from './Services/users-service/users-service.service';
+import { ToastrModule } from 'ngx-toastr';
+import { AddHotelComponent } from './Components/admin-page/admin-hotels/add-hotel/add-hotel.component';
+import { EditHotelComponent } from './Components/admin-page/admin-hotels/edit-hotel/edit-hotel.component';
+import { ViewHotelsComponent } from './Components/admin-page/admin-hotels/view-hotels/view-hotels.component';
+import { AddRestaurantComponent } from './Components/admin-page/admin-restaurants/add-restaurant/add-restaurant.component';
+import { ViewRestaurantsComponent } from './Components/admin-page/admin-restaurants/view-restaurants/view-restaurants.component';
+import { EditRestaurantComponent } from './Components/admin-page/admin-restaurants/edit-restaurant/edit-restaurant.component';
+import { AddObjectiveComponent } from './Components/admin-page/admin-touristic-objective/add-objective/add-objective.component';
+import { EditObjectiveComponent } from './Components/admin-page/admin-touristic-objective/edit-objective/edit-objective.component';
+import { ViewObjectivesComponent } from './Components/admin-page/admin-touristic-objective/view-objectives/view-objectives.component';
+import { AdminReservationsComponent } from './Components/admin-page/admin-reservations/admin-reservations.component';
+import { LoginComponent } from './Components/login-register/login/login.component';
+import { RegisterComponent } from './Components/login-register/register/register.component';
+import { ForgottenPasswordComponent } from './Components/login-register/forgotten-password/forgotten-password.component';
+import { ResetPasswordComponent } from './Components/login-register/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -62,9 +76,20 @@ import { UsersServiceService } from './Services/users-service/users-service.serv
     EatComponent,
     ItemsCarouselComponent,
     AdminPageComponent,
-    AdminRestaurantsComponent,
-    AdminUsersComponent,
-    AdminHotelsComponent
+    AddHotelComponent,
+    EditHotelComponent,
+    ViewHotelsComponent,
+    AddRestaurantComponent,
+    ViewRestaurantsComponent,
+    EditRestaurantComponent,
+    AddObjectiveComponent,
+    EditObjectiveComponent,
+    ViewObjectivesComponent,
+    AdminReservationsComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgottenPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +111,7 @@ import { UsersServiceService } from './Services/users-service/users-service.serv
     HttpClientJsonpModule,
     CarouselModule,
     WavesModule,
+    ToastrModule.forRoot(),
     MDBBootstrapModulesPro.forRoot()
   ],
   providers: [
@@ -93,7 +119,8 @@ import { UsersServiceService } from './Services/users-service/users-service.serv
     ReservationServiceService,
     RestaurantServiceService,
     TouristicObjectiveServiceService,
-    UsersServiceService
+    UsersServiceService,
+    // authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

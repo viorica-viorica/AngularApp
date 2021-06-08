@@ -1,3 +1,4 @@
+import { TouristicObjectiveModel } from './../../Models/touristic-objective-model/touristic-objective-model.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -7,28 +8,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TouristicObjectiveServiceService {
 
-  readonly APIUrl = "http://localhost:5000/api";
+  readonly APIUrl = "http://localhost:5000/api/TouristicObjective";
   readonly PhotoUrl = "http://localhost:5000/Photos";
 
   constructor(private http:HttpClient) { }
 
-  getTouristicObjectiveList(): Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/touristicobjective');
+  getTouristicObjectivesList(): Observable<TouristicObjectiveModel[]>{
+    return this.http.get<TouristicObjectiveModel[]>(this.APIUrl);
   }
 
-  addTouristicObjective(val:any){
-    return this.http.post(this.APIUrl+'/touristicobjective', val);
+  getTouristicObjective(id: number): Observable<TouristicObjectiveModel>{
+    return this.http.get<TouristicObjectiveModel>(`${this.APIUrl}/${id}`);
   }
 
-  updateTouristicObjective(val:any){
-    return this.http.put(this.APIUrl+'/touristicobjective', val);
+  addTouristicObjective(objective: TouristicObjectiveModel): Observable<TouristicObjectiveModel>{
+    const newObjective = new TouristicObjectiveModel();
+    newObjective.name = objective.name;
+    newObjective.address = objective.address;
+    newObjective.description = objective.description;
+    newObjective.schedule = objective.schedule;
+    newObjective.latitude = objective.latitude;
+    newObjective.longitude = objective.longitude;
+    newObjective.photo = objective.photo;
+    return this.http.post<TouristicObjectiveModel>(this.APIUrl, newObjective);
   }
 
-  deleteTouristicObjective(val:any){
-    return this.http.delete(this.APIUrl+'/touristicobjective/'+val);
+  updateTouristicObjective(id: number, objective: TouristicObjectiveModel): Observable<TouristicObjectiveModel>{
+    return this.http.put<TouristicObjectiveModel>(`${this.APIUrl}/${id}`, objective);
   }
 
-  uploadPhoto(val:any){
-    return this.http.post(this.APIUrl+'/touristicobjective/SaveFile', val);
+  deleteTouristicObjective(id: number): Observable<TouristicObjectiveModel>{
+    return this.http.delete<TouristicObjectiveModel>(`${this.APIUrl}/${id}`);
+  }
+
+  uploadPhoto(val:any): Observable<TouristicObjectiveModel>{
+    return this.http.post<TouristicObjectiveModel>(this.APIUrl+'/touristicobjective/SaveFile', val);
   }
 }

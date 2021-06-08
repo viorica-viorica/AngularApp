@@ -1,0 +1,43 @@
+<form [formGroup]="userSaveForm" id="register" class="input-group">
+    <div class="form-title text-center py-2">
+        <h4>Înregistrare</h4>
+        <hr>
+    </div><br>
+    <div class="form-group">
+        <input type="text" name="nume_prenume" [(ngModel)]="firstLastName" formControlName="userFirstLastName"
+            placeholder="Nume și Prenume" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input type="text" name="nr_telefon" [(ngModel)]="phoneNumber" formControlName="userPhoneNumber"
+            placeholder="Număr de telefon" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input type="email" name="adr_email" [(ngModel)]="email" formControlName="userEmail" placeholder="E-mail"
+            class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input type="text" name="nume_utilizator" [(ngModel)]="username" formControlName="uUsername"
+            placeholder="Nume utilizator" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <input type="password" name="parola" [(ngModel)]="password" formControlName="userPassword" placeholder="Parola"
+            class="form-control" required>
+    </div>
+    <div class="button-group">
+        <div class="form-group">
+            <div class="alert-msg">
+                <div style="color: red; font-size: 16px">
+                    {{emptyData}}
+                </div>
+                <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                    <strong>Felicitări!</strong> {{ successMessage }}
+                </div>
+                <div *ngIf="failMessage" class="alert alert-danger" role="alert">
+                    <strong>Uups!</strong> {{ failMessage }}
+                </div>
+            </div>
+        </div>
+        <button type="submit" (click)="checkUser()" class="button">Înregistrare</button>
+        <button type="button" routerLink="../login" class="button">Autentificare</button>
+    </div>
+</form>
