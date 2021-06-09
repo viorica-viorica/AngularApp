@@ -1,13 +1,13 @@
-<form id="login" class="input-group" action="#" method="post">
+<form id="login" class="input-group" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="form-title">
         <h4>Autentificare</h4><hr>
     </div><br>
 
     <div class="form-group">
-        <br><input type="text" name="nume_utilizator" placeholder="Nume utilizator" class="form-control" required>
+        <br><input type="text" formControlName="username" name="nume_utilizator" placeholder="Nume utilizator" class="form-control" required>
     </div>
     <div class="form-group">
-        <input type="password" name="parola" placeholder="Parola" class="form-control" required><br>
+        <input type="password" formControlName="password" name="parola" placeholder="Parola" class="form-control" required><br>
     </div>
     <div class="form-group">
         <button type="button" class="forgottenButton mr-3" routerLink="../forgotten-password">Ați uitat parola?</button>

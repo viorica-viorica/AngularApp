@@ -1,3 +1,4 @@
+import { Role } from '../roles.enum';
 export class UsersModel {
     userId!: number;
     firstLastName!: string;
@@ -9,4 +10,5 @@ export class UsersModel {
     longitude!: number;
     isAdmin!: string;
     profilePhoto!: File;
+    // role!: Role;
 }

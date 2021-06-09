@@ -46,6 +46,7 @@
     "minireset.css": "~0.0.4",
     "ng-sidebar": "^9.4.2",
     "ng-uikit-pro-standard": "^1.0.0",
+    "ngx-cookie-service": "^12.0.0",
     "ngx-owl-carousel-o": "^5.0.0",
     "ngx-toastr": "^14.0.0",
     "resize-observer-polyfill": "^1.5.1",
