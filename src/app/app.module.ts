@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-
-// import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { MatCardModule } from '@angular/material/card';
 
 import { CarouselModule, WavesModule, MDBBootstrapModulesPro } from 'ng-uikit-pro-standard'
 
@@ -34,7 +33,6 @@ import { MapComponent } from './Components/home/map/map.component';
 import { ToDoComponent } from './Components/home/to-do/to-do.component';
 import { StayComponent } from './Components/home/stay/stay.component';
 import { EatComponent } from './Components/home/eat/eat.component';
-import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
 import { AdminPageComponent } from './Components/admin-page/admin-page.component';
 import { HotelServiceService } from './Services/hotel-service/hotel-service.service';
 import { ReservationServiceService } from './Services/reservation-service/reservation-service.service';
@@ -56,6 +54,9 @@ import { LoginComponent } from './Components/login-register/login/login.componen
 import { RegisterComponent } from './Components/login-register/register/register.component';
 import { ForgottenPasswordComponent } from './Components/login-register/forgotten-password/forgotten-password.component';
 import { ResetPasswordComponent } from './Components/login-register/reset-password/reset-password.component';
+import { PasswordConfirmationValidatorService } from './Services/password-service/password-confirmation-validator.service';
+import { TouristicObjectivesComponent } from './Components/touristic-objectives/touristic-objectives.component';
+import { ScheduleATripComponent } from './Components/home/map/schedule-a-trip/schedule-a-trip.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,6 @@ import { ResetPasswordComponent } from './Components/login-register/reset-passwo
     ToDoComponent,
     StayComponent,
     EatComponent,
-    ItemsCarouselComponent,
     AdminPageComponent,
     AddHotelComponent,
     EditHotelComponent,
@@ -89,7 +89,9 @@ import { ResetPasswordComponent } from './Components/login-register/reset-passwo
     LoginComponent,
     RegisterComponent,
     ForgottenPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    TouristicObjectivesComponent,
+    ScheduleATripComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +113,7 @@ import { ResetPasswordComponent } from './Components/login-register/reset-passwo
     HttpClientJsonpModule,
     CarouselModule,
     WavesModule,
+    MatCardModule,
     ToastrModule.forRoot(),
     MDBBootstrapModulesPro.forRoot()
   ],
@@ -120,7 +123,7 @@ import { ResetPasswordComponent } from './Components/login-register/reset-passwo
     RestaurantServiceService,
     TouristicObjectiveServiceService,
     UsersServiceService,
-    // authInterceptorProviders
+    PasswordConfirmationValidatorService
   ],
   bootstrap: [AppComponent]
 })

@@ -87,6 +87,14 @@
                 </div>
             </div>
 
+            <div class="row">
+                <label class="col-md-3 m-auto" for="hotelUrl">Site-ul hotelului: </label>
+                <div class="form-group col-md-9 m-auto">
+                    <input type="text" name="hotelUrl" [(ngModel)]="hotel.hotelUrl" placeholder="Site-ul hotelului"
+                        class="form-control" required>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="alert-msg">
                     <div style="color: red; font-size: 16px">
@@ -100,7 +108,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="button btn btn-outline-success">Actualizează hotel</button>
+                <button type="submit" class="button btn">Actualizează hotel</button>
             </div>
         </div>
     </div>

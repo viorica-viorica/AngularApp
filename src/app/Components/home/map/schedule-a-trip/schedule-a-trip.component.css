@@ -1,10 +1,28 @@
-.carousel-item:active,  .carousel-item-next, .carousel-item-right{
-    display: flex !important;
-    flex-wrap: wrap;
-    color: linear-gradient(to right,#75213d,#dc990f)!important;
-  }
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
-  .button{
+.content{
+    width: 100%!important;
+    color: white!important;
+}
+
+mat-selection-list{
+    width: 100%!important;
+}
+
+mat-list-option{
+    color:white!important;
+}
+
+mat-list-option:hover {
+    background: #8584842f;
+}
+
+
+hr{
+    background: white;
+}
+
+.button{
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
@@ -21,13 +39,4 @@
 
   .button:hover{
     color:rgb(61, 60, 60);
-  }
-
-  h6{
-    color: rgb(24, 22, 22);
-  }
-
-  p{
-      font-size: 14px;
-      color: rgb(24, 22, 22);
   }

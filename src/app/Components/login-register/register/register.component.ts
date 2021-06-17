@@ -3,6 +3,7 @@ import { UsersServiceService } from './../../../Services/users-service/users-ser
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/Models/roles.enum';
 
 @Component({
   selector: 'app-register',
@@ -27,9 +28,13 @@ export class RegisterComponent implements OnInit {
   longitude: number = 0;
   isAdmin: string = "false";
   profilePhoto!: File;
-  successMessage!: string;
+  role: Role = null!;
   failMessage!: string;
   emptyData!: string;
+  public errorMessage: string = '';
+  public successMessage: string = '';
+  public showError!: boolean;
+  public showSuccess!: boolean;
 
   userSaveForm = new FormGroup({
     userFirstLastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -62,13 +67,13 @@ export class RegisterComponent implements OnInit {
       password: this.password,
       latitude: this.latitude,
       longitude: this.longitude,
-      isAdmin: this.isAdmin,
-      profilePhoto: this.profilePhoto
+      profilePhoto: this.profilePhoto,
+      role: this.role
     };
 
     console.log(this.user);
 
-    this.userService.addUser(this.user)
+    this.userService.register(this.user)
       .subscribe(
         (callback: any) => {
           if (callback) {
@@ -99,5 +104,13 @@ export class RegisterComponent implements OnInit {
           },
             4000)
         })
+  }
+
+  public validateControl = (controlName: string) => {
+    return this.userSaveForm.controls[controlName].invalid && this.userSaveForm.controls[controlName].touched
+  }
+
+  public hasError = (controlName: string, errorName: string) => {
+    return this.userSaveForm.controls[controlName].hasError(errorName)
   }
 }

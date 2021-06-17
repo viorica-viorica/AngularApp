@@ -37,3 +37,7 @@ table{
   .button:hover{
     color:rgb(61, 60, 60);
   }
+
+  i{
+    width: 18px!important;
+  }

@@ -1,3 +1,5 @@
+import { ScheduleATripComponent } from './Components/home/map/schedule-a-trip/schedule-a-trip.component';
+import { TouristicObjectivesComponent } from './Components/touristic-objectives/touristic-objectives.component';
 import { ResetPasswordComponent } from './Components/login-register/reset-password/reset-password.component';
 import { ForgottenPasswordComponent } from './Components/login-register/forgotten-password/forgotten-password.component';
 import { RegisterComponent } from './Components/login-register/register/register.component';
@@ -11,7 +13,6 @@ import { EditRestaurantComponent } from './Components/admin-page/admin-restauran
 import { AddRestaurantComponent } from './Components/admin-page/admin-restaurants/add-restaurant/add-restaurant.component';
 import { AddHotelComponent } from './Components/admin-page/admin-hotels/add-hotel/add-hotel.component';
 import { AdminPageComponent } from './Components/admin-page/admin-page.component';
-import { ItemsCarouselComponent } from './Components/home/items-carousel/items-carousel.component';
 import { ToDoComponent } from './Components/home/to-do/to-do.component';
 import { EatComponent } from './Components/home/eat/eat.component';
 import { StayComponent } from './Components/home/stay/stay.component';
@@ -29,16 +30,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewHotelsComponent } from './Components/admin-page/admin-hotels/view-hotels/view-hotels.component';
 import { EditHotelComponent } from './Components/admin-page/admin-hotels/edit-hotel/edit-hotel.component';
+import { AuthGuardService } from './Services/auth-guard.service';
+import { Role } from './Models/roles.enum';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
     path: 'my-profile',
-    component: MyProfileComponent
+    component: MyProfileComponent,
+    canActivate: [AuthGuardService],
+    data: { expectedRoles: [Role.USER, Role.ADMIN] }
   },
   {
     path: 'hotels',
@@ -47,6 +52,10 @@ const routes: Routes = [
   {
     path: 'restaurants',
     component: RestaurantsComponent
+  },
+  {
+    path: 'touristic-objective',
+    component: TouristicObjectivesComponent
   },
   {
     path: 'login-register',
@@ -77,11 +86,15 @@ const routes: Routes = [
   },
   {
     path: 'my-restaurants',
-    component: MyRestaurantsComponent
+    component: MyRestaurantsComponent,
+    canActivate: [AuthGuardService],
+    data: { expectedRoles: [Role.USER, Role.ADMIN] }
   },
   {
     path: 'my-hotels',
-    component: MyHotelsComponent
+    component: MyHotelsComponent,
+    canActivate: [AuthGuardService],
+    data: { expectedRoles: [Role.USER, Role.ADMIN] }
   },
   {
     path: 'carousel',
@@ -89,7 +102,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path: 'schedule-a-trip',
+        component: ScheduleATripComponent
+      }
+    ]
   },
   {
     path: 'map',
@@ -108,12 +127,10 @@ const routes: Routes = [
     component: EatComponent
   },
   {
-    path: 'items-carousel',
-    component: ItemsCarouselComponent
-  },
-  {
     path: 'admin-page',
     component: AdminPageComponent,
+    canActivate: [AuthGuardService],
+    data: { expectedRoles: [Role.ADMIN] },
     children: [
       {
         path: '',
@@ -122,47 +139,72 @@ const routes: Routes = [
       },
       {
         path: 'admin-reservation',
-        component: AdminReservationsComponent
+        component: AdminReservationsComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'view-hotels',
-        component: ViewHotelsComponent
+        component: ViewHotelsComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'add-hotel',
-        component: AddHotelComponent
+        component: AddHotelComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'edit-hotel/:id',
-        component: EditHotelComponent
+        component: EditHotelComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'add-restaurant',
-        component: AddRestaurantComponent
+        component: AddRestaurantComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'edit-restaurant/:id',
-        component: EditRestaurantComponent
+        component: EditRestaurantComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'view-restaurants',
-        component: ViewRestaurantsComponent
+        component: ViewRestaurantsComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'add-objective',
-        component: AddObjectiveComponent
+        component: AddObjectiveComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'edit-objective/:id',
-        component: EditObjectiveComponent
+        component: EditObjectiveComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
       },
       {
         path: 'view-objectives',
-        component: ViewObjectivesComponent
-      }
+        component: ViewObjectivesComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.ADMIN] }
+      },
+      // {
+      //   path: '**',
+      //   redirectTo: '/home',
+      //   pathMatch: 'full'
+      // }
     ]
   },
-  
+
 ];
 
 @NgModule({

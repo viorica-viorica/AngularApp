@@ -24,6 +24,8 @@ export class AddRestaurantComponent implements OnInit {
   latitude!: number;
   longitude!: number;
   photo!: File;
+  restaurantUrl!: string;
+  menuUrl!: string;
   wrongImageFormat: String = '';
   successMessage!: string;
   failMessage!: string;
@@ -35,6 +37,8 @@ export class AddRestaurantComponent implements OnInit {
     restaurantSchedule: new FormControl('', [Validators.required, Validators.minLength(1)]),
     restaurantLatitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
     restaurantLongitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    restaurantUrl: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    restaurantMenuUrl: new FormControl('', [Validators.required, Validators.minLength(1)]),
     restaurantPhoto: new FormControl('')
   });
 
@@ -68,7 +72,9 @@ export class AddRestaurantComponent implements OnInit {
       schedule: this.schedule,
       latitude: this.latitude,
       longitude: this.longitude,
-      photo: this.photo
+      photo: this.photo,
+      restaurantUrl: this.restaurantUrl,
+      menuUrl: this.menuUrl
     };
       if (this.wrongImageFormat === '') {
         this.restaurantService.addRestaurant(this.restaurant)

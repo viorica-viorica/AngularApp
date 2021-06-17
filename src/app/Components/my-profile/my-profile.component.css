@@ -65,10 +65,12 @@ hr{
     color:white;
     font-size: 16px!important;
     margin-left: 2%;
+    margin-bottom: 3%;
   }
 
   label{
     margin-left: 2%;
+    bottom: -14px;
   }
   
   .form-group{

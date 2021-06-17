@@ -94,19 +94,26 @@
             <p>„Nimic nu te face să te simți mai bine decât atunci când intri într-un pat de hotel, iar cearșafurile se simt atât de bine.” - Bobby Berk</p>
         </div>
         <hr>
-        <div class="row hotel">
-            <div class="col-md-4 image-hotel">
-                <img src="../../../assets/Carousel/kronwell.jpg" alt="">
+        <div class="view-hotels" *ngFor="let hotel of HotelsList">
+            <div class="row hotel">
+                <div class="col-md-4 image-hotel">
+                    <img src="../../../assets/Carousel/kronwell.jpg" alt="">
+                </div>
+                <div class="col-md-5 name-hotel">
+                    <a href="{{hotel.hotelUrl}}"><h4>{{hotel.name}}</h4></a>
+                    <h5>Adresa: {{hotel.address}}</h5>
+                    <p>
+                        Camere disponibile: {{hotel.rooms}}<br>
+                        Adulți: {{hotel.adults}}<br>
+                        Copii: {{hotel.children}}
+                    </p>
+                </div>
+                <div class="col-md-3 m-auto price">
+                    <h6 style="text-align: center;">Preț: {{hotel.price}} RON</h6><br>
+                    <button class="button-reservation">Fă o rezervare</button>
+                </div>
             </div>
-            <div class="col-md-5 name-hotel">
-                <h5>Hotel Kronwell</h5>
-                <p>Adresa: </p>
-            </div>
-            <div class="col-md-3 price">
-                <h6>Pret:</h6>
-            </div>
+            <hr>
         </div>
-        <hr>
-
     </section>
 </div>

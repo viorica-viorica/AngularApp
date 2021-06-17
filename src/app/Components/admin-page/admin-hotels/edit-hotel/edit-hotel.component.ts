@@ -38,8 +38,6 @@ export class EditHotelComponent implements OnInit {
   }
 
   editHotel(f: NgForm) {
-    this.hotel = f.value;
-    console.log("Hotel Form: ", this.hotel);
     this.hotelService.updateHotel(this.hotelId, f.value)
       .subscribe(
         data => {

@@ -28,3 +28,33 @@
 hr{
     background: white;
 }
+
+.button-reservation{
+    width: 98%;
+    padding: 10px 30px;
+    cursor: pointer;
+    margin-left:auto;
+    margin-right: auto;
+    border: 0;
+    outline: none;
+    background: linear-gradient(to right,#75213d,#dc990f);
+    border-radius: 30px;
+    color: #fff;
+  }
+
+  .button-reservation:hover{
+    color:rgb(61, 60, 60);
+  }
+
+  section{
+      margin: auto;
+      width: 94%;
+  }
+
+  a{
+    color:rgb(241, 236, 232);
+  }
+
+  a:hover{
+      color:rgb(124, 124, 124)
+  }

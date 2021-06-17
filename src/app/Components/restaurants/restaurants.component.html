@@ -1,19 +1,27 @@
 <div class="container">
-    <div class="title">
-        <h4>Restaurante în Brașov</h4>
-    </div>
-    <hr>
-    <div class="row restaurants">
-        <div class="col-4 image">
-            <img src="../../../assets/Restaurante/greek-restaurant.jpg" alt="">
+    <section>
+        <div class="title">
+            <h4>Restaurante în Brașov</h4>
         </div>
-        <div class="col-5 details">
-            <h6>Restaurant Athanasios</h6>
-            Adresa: ...
+        <hr>
+
+        <div class="view-restaurants" *ngFor="let restaurant of restaurantsList">
+            <div class="row restaurants">
+                <div class="col-4 image">
+                    <img src="../../../assets/Restaurante/greek-restaurant.jpg" alt="">
+                </div>
+                <div class="col-5 details">
+                    <a href="{{restaurant.restaurantUrl}}"><h4>{{restaurant.name}}</h4></a>
+                    <h5>Adresa: {{restaurant.address}}</h5>
+                    <p>{{restaurant.schedule}}</p>
+                    <a href="{{restaurant.menuUrl}}">Vezi meniul</a>
+                    <!--isOpendRestaurant-->
+                </div>
+                <div class="col-3 m-auto">
+                    <button class="button-reservation">Fă o rezervare</button>
+                </div>
+            </div>
+            <hr>
         </div>
-        <div class="col-3">
-            Rating
-        </div>
-    </div>
-    <hr>
+    </section>
 </div>

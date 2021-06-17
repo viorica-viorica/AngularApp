@@ -9,40 +9,75 @@
             <div class="col-md-5 m-auto profile">
                 <img src="../../../assets/profile-photo.jpg" alt="profile photo" class="profile-photo"><br>
                 <div class="user-name" style="text-align: center;">
-                    <h5>Nume utilizator</h5>
+                    <h5>{{username}}</h5>
                 </div>
                 <button type="button" class="edit-button">Editează poza de profil</button>
             </div>
-            
+
             <hr>
             <div class="col-md-7 m-auto profile-form">
                 <div class="choose-button">
                     <button type="button" (click)="toggleEditProfile()" class="button">Editare date personale</button>
                     <button type="button" (click)="toggleEditPassword()" class="button">Schimbă parola</button>
                 </div>
-    
-                <form [hidden] = "isHiddenEditProfileForm" class="form-group">
-                    <label for="last-name">Nume și Prenume</label>
-                    <input type="text" name="last-name" class="form-control">
-                    <label for="adress">Adresa</label>
-                    <input type="text" name="adress" class="form-control">
-                    <label for="city">Localitate</label>
-                    <input type="text" name="city" class="form-control">
-                    <label for="region">Județ</label>
-                    <input type="text" name="region" class="form-control">
-                    <label for="country">Țara</label>
-                    <input type="text" name="country" class="form-control"><br>
-    
+
+                <form #editProfileForm="ngForm" [hidden]="isHiddenEditProfileForm" class="form-group"
+                    (ngSubmit)="updateUser(editProfileForm)">
+                    <div *ngIf="showErrorProfile" class="alert alert-danger m-auto" role="alert">
+                        <span [innerHTML]="errorMessage"></span>
+                    </div>
+
+                    <div *ngIf="showSuccessProfile" class="alert alert-success m-auto" role="alert">
+                        Datele dumneavoastră au fost actualizate.
+                    </div>
+
+                    <div class="row">
+                        <label for="first-last-name" class="col-md-3">Nume și Prenume</label>
+                        <input type="text" name="firstLastName" [(ngModel)]="currentUser.firstLastName" class="form-control col-md-7">
+                    </div>
+                    <div class="row">
+                        <label for="phone" class="col-md-3">Număr de telefon</label>
+                        <input type="text" name="phoneNumber" [(ngModel)]="currentUser.phoneNumber" class="form-control col-md-7">
+                    </div>
+                    <div class="row">
+                        <label for="email" class="col-md-3">E-mail</label>
+                        <input type="text" name="email" [(ngModel)]="currentUser.email" class="form-control col-md-7"><br>
+                    </div>
+
                     <button type="submit" class="button  update-button">Actualizează datele</button>
                 </form>
-    
-                <form [hidden] = "isHiddenEditPasswordForm" class="form-group">
-                    <label for="new-password">Introduceți noua parolă</label>
-                    <input type="text" name="new-password" class="form-control">
-                    <label for="confirm-password">Confirmați parola</label>
-                    <input type="text" name="confirm-password" class="form-control"><br>
-    
-                    <button type="submit" class="button">Resetează parola</button>
+
+                <form [hidden]="isHiddenEditPasswordForm" class="form-group" [formGroup]="resetPasswordForm"
+                    autocomplete="off" novalidate (ngSubmit)="resetPassword(resetPasswordForm.value)">
+                    <div *ngIf="showErrorPass" class="alert alert-danger" role="alert">
+                        <span [innerHTML]="errorMessage"></span>
+                    </div>
+
+                    <div *ngIf="showSuccessPass" class="alert alert-success" role="alert">
+                        Parola dumneavoastră a fost resetată.
+                    </div>
+
+                    <div class="form-input row">
+                        <label for="new-password" class="col-md-3">Introduceți noua parolă</label>
+                        <div class="col-md-8">
+                            <input type="password" name="new-password" formControlName="password" class="form-control">
+                            <em *ngIf="validateControl('password') && hasError('password', 'required')">Parola este
+                                obligatorie</em>
+                        </div>
+                    </div>
+
+                    <div class="form-input row">
+                        <label for="confirm-password" class="col-md-3">Confirmați parola</label>
+                        <div class="col-md-8">
+                            <input type="password" name="confirm-password" formControlName="confirm"
+                            class="form-control"><br>
+                            <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Confirmarea este
+                                obligatorie</em>
+                            <em *ngIf="hasError('confirm', 'mustMatch')">Parolele trebuie să fie asemănătoare</em>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button" [disabled]="!resetPasswordForm.valid">Resetează parola</button>
                 </form>
             </div>
         </div>

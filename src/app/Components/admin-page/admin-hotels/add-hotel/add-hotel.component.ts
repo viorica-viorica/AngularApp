@@ -27,6 +27,7 @@ export class AddHotelComponent implements OnInit {
   latitude!: number;
   longitude!: number;
   photo!: File;
+  hotelUrl!: string;
   wrongImageFormat: String = '';
   successMessage!: string;
   failMessage!: string;
@@ -43,7 +44,8 @@ export class AddHotelComponent implements OnInit {
     hotelChildren: new FormControl('', [Validators.required, Validators.minLength(1)]),
     hotelLatitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
     hotelLongitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    hotelPhoto: new FormControl('')
+    hotelPhoto: new FormControl(''),
+    hotelUrl: new FormControl('')
   });
 
   checkHotel() {
@@ -80,7 +82,8 @@ export class AddHotelComponent implements OnInit {
       children: this.children,
       latitude: this.latitude,
       longitude: this.longitude,
-      photo: this.photo
+      photo: this.photo,
+      hotelUrl: this.hotelUrl
     };
     if (this.wrongImageFormat === '') {
       this.hotelService.addHotel(this.hotel)

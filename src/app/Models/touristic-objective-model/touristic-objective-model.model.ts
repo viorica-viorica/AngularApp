@@ -6,5 +6,6 @@ export class TouristicObjectiveModel {
     schedule!: string;
     latitude!: number;
     longitude!: number;
+    objectiveUrl!: string;
     photo!: File;
 }

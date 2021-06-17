@@ -8,7 +8,6 @@ export class UsersModel {
     password!: string;
     latitude!: number;
     longitude!: number;
-    isAdmin!: string;
     profilePhoto!: File;
-    // role!: Role;
+    role!: Role;
 }

@@ -14,13 +14,13 @@ export class ViewHotelsComponent implements OnInit, OnDestroy {
 
   private subcription!: Subscription;
   HotelsList: HotelModel[] = [];
-  
+
   ngOnInit(): void {
     this.refreshHotelsList();
   }
 
-  ngOnDestroy(){
-    if (this.subcription){
+  ngOnDestroy() {
+    if (this.subcription) {
       this.subcription.unsubscribe;
     }
   }
@@ -38,9 +38,9 @@ export class ViewHotelsComponent implements OnInit, OnDestroy {
     }
   }
 
-refreshHotelsList(){
-  this.HotelService.getHotelsList().subscribe(data=>{
-    this.HotelsList=data;
-  });
-}
+  refreshHotelsList() {
+    this.HotelService.getHotelsList().subscribe(data => {
+      this.HotelsList = data;
+    });
+  }
 }

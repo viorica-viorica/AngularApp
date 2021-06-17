@@ -7,7 +7,54 @@
             </p>
         </div>
         <div class="col-md-10 m-auto">
-            <app-items-carousel></app-items-carousel>
+            <mdb-carousel id="'options'" [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [isControls]="true"
+                class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'">
+                <ng-container *ngSwitchCase="'single'">
+                    <mdb-carousel-item *ngFor="let restaurant of restaurantsList">
+                        <mdb-card class="my-1">
+                            <mdb-card-img src="../../../../assets/Restaurante/restaurant_icon1.jpg"
+                                alt="Card image cap">
+                            </mdb-card-img>
+                            <mdb-card-body>
+                                <mdb-card-title>
+                                    <h6> {{ restaurant.name }}</h6>
+                                </mdb-card-title>
+                                <p>
+                                    {{ restaurant.address }} <br>
+                                    {{ restaurant.schedule }}
+                                </p>
+                            </mdb-card-body>
+                            <mdb-card-footer>
+                                <a href="{{restaurant.restaurantUrl}}" mdbBtn class="waves-light button" mdbWavesEffect>Mai multe detalii</a>
+                            </mdb-card-footer>
+                        </mdb-card>
+                    </mdb-carousel-item>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'multiple'">
+                    <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                        <div class="col-md-4" *ngFor="let restaurant of item; let restaurantIndex = index">
+                            <mdb-card class="my-1">
+                                <mdb-card-img src="../../../../assets/Restaurante/restaurant_icon1.jpg"
+                                    alt="Card image cap">
+                                </mdb-card-img>
+                                <mdb-card-body>
+                                    <mdb-card-title>
+                                        <h6>{{ restaurant.name }}</h6>
+                                    </mdb-card-title>
+                                    <p>
+                                        {{ restaurant.address }} <br>
+                                        {{ restaurant.schedule }}
+                                    </p>
+                                </mdb-card-body>
+                                <mdb-card-footer>
+                                    <a href="{{restaurant.restaurantUrl}}" mdbBtn class="waves-light button" mdbWavesEffect>Mai multe detalii</a>
+                                </mdb-card-footer>
+                            </mdb-card>
+                        </div>
+                    </mdb-carousel-item>
+                </ng-container>
+            </mdb-carousel>
         </div>
     </div>
 </div>

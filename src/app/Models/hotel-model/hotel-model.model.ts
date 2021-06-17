@@ -9,4 +9,5 @@ export class HotelModel {
     latitude!: number;
     longitude!: number;
     photo!: File;
+    hotelUrl!: string;
 }

@@ -7,7 +7,46 @@
             </p>
         </div>
         <div class="col-md-10 m-auto">
-            <app-items-carousel></app-items-carousel>
+            <mdb-carousel [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [isControls]="true"
+                class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'">
+                <ng-container *ngSwitchCase="'single'">
+                    <mdb-carousel-item *ngFor="let hotel of hotelsList">
+                        <mdb-card class="my-1">
+                            <mdb-card-img src="../../../../assets/Hotels/hotel-icon.jpg" alt="Card image cap">
+                            </mdb-card-img>
+                            <mdb-card-body>
+                                <mdb-card-title>
+                                    <h6> {{ hotel.name }}</h6>
+                                </mdb-card-title>
+                                <p>{{ hotel.address }}</p>
+                            </mdb-card-body>
+                            <mdb-card-footer>
+                                <a href="{{hotel.hotelUrl}}" mdbBtn class="waves-light button" mdbWavesEffect>Mai multe detalii</a>
+                            </mdb-card-footer>
+                        </mdb-card>
+                    </mdb-carousel-item>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'multiple'">
+                    <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                        <div class="col-md-4" *ngFor="let hotel of item; let hotelIndex = index">
+                            <mdb-card class="my-1">
+                                <mdb-card-img src="../../../../assets/Hotels/hotel-icon.jpg" alt="Card image cap">
+                                </mdb-card-img>
+                                <mdb-card-body>
+                                    <mdb-card-title>
+                                        <h6>{{hotel.name}}</h6>
+                                    </mdb-card-title>
+                                    <p>{{hotel.address}}</p>
+                                </mdb-card-body>
+                                <mdb-card-footer>
+                                    <a href="{{hotel.hotelUrl}}" mdbBtn class="waves-light button" mdbWavesEffect>Mai multe detalii</a>
+                                </mdb-card-footer>
+                            </mdb-card>
+                        </div>
+                    </mdb-carousel-item>
+                </ng-container>
+            </mdb-carousel>
         </div>
     </div>
 </div>

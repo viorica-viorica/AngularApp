@@ -11,6 +11,8 @@
                 <th>Program</th>
                 <th>Latitudine</th>
                 <th>Longitudine</th>
+                <!-- <th>Site-ul restaurantului</th>
+                <th>Meniu</th> -->
                 <th>Opțiuni</th>
             </tr>
         </thead>
@@ -23,6 +25,8 @@
                 <td>{{dataItem.schedule}}</td>
                 <td>{{dataItem.latitude}}</td>
                 <td>{{dataItem.longitude}}</td>
+                <!-- <td>{{dataItem.restaurantUrl}}</td>
+                <td>{{dataItem.menuUrl}}</td> -->
                 <td>
                     <button type="button" class="edit btn btn-light mr-1" routerLink="../edit-restaurant/{{dataItem.restaurantId}}">
                         <i class="far fa-edit"></i>

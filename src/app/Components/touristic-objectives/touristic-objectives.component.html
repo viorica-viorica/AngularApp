@@ -1,0 +1,29 @@
+<div class="container">
+    <section>
+        <div class="title">
+            <h4>Atracții turistice</h4>
+        </div>
+        <hr>
+
+        <div class="view-objectives" *ngFor="let objective of objectivesList">
+            <mat-card class="view-objective">
+                <mat-card-header>
+                    <mat-card-title>{{objective.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <img src="../../../assets/Objectives/bran-castle-5.jpg" alt="">
+                    <p>
+                        {{objective.address}}<br>
+                        {{objective.description}}<br>
+                        {{objective.schedule}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <a href="{{objective.objectiveUrl}}">
+                        <button mat-button class="button">Mai multe detalii</button>
+                    </a>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </section>
+</div>

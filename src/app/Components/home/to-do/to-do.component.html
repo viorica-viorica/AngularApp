@@ -7,7 +7,55 @@
             </p>
         </div>
         <div class="col-md-10 m-auto">
-            <app-items-carousel></app-items-carousel>
+            <mdb-carousel id="'options'" [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [isControls]="true"
+                class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'">
+                <ng-container *ngSwitchCase="'single'">
+                    <mdb-carousel-item *ngFor="let objective of objectivesList">
+                        <mdb-card class="my-1">
+                            <mdb-card-img src="../../../../assets/Objectives/9e2f6de991858d3851013b472ce0ddbb.jpg" alt="Card image cap">
+                            </mdb-card-img>
+                            <mdb-card-body>
+                                <mdb-card-title>
+                                    <h6> {{ objective.name }}</h6>
+                                </mdb-card-title>
+                                <p>
+                                    {{ objective.address }} <br>
+                                    {{ objective.description }} <br>
+                                    {{ objective.schedule }}
+                                </p>
+                            </mdb-card-body>
+                            <mdb-card-footer>
+                                <a href="{{objective.objectiveUrl}}" mdbBtn class="waves-light button" mdbWavesEffect>Mai multe detalii</a>
+                            </mdb-card-footer>
+                        </mdb-card>
+                    </mdb-carousel-item>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'multiple'">
+                    <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                        <div class="col-md-4" *ngFor="let objective of item; let objectiveIndex = index">
+                            <mdb-card class="my-1">
+                                <mdb-card-img src="../../../../assets/Objectives/9e2f6de991858d3851013b472ce0ddbb.jpg"
+                                    alt="Card image cap">
+                                </mdb-card-img>
+                                <mdb-card-body>
+                                    <mdb-card-title>
+                                        <h6>{{ objective.name }}</h6>
+                                    </mdb-card-title>
+                                    <p>
+                                        {{ objective.address }} <br>
+                                        {{ objective.description }} <br>
+                                        {{ objective.schedule }}
+                                    </p>
+                                </mdb-card-body>
+                                <mdb-card-footer>
+                                    <a href="{{objective.objectiveUrl}}" mdbBtn class="waves-light button" mdbWavesEffect>Mai multe detalii</a>
+                                </mdb-card-footer>
+                            </mdb-card>
+                        </div>
+                    </mdb-carousel-item>
+                </ng-container>
+            </mdb-carousel>
         </div>
     </div>
 </div>

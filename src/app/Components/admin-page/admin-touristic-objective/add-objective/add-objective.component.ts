@@ -24,6 +24,7 @@ export class AddObjectiveComponent implements OnInit {
   schedule!: string;
   latitude!: number;
   longitude!: number;
+  objectiveUrl!: string;
   photo!: File;
   wrongImageFormat: String = '';
   successMessage!: string;
@@ -37,7 +38,8 @@ export class AddObjectiveComponent implements OnInit {
     objectiveSchedule: new FormControl('', [Validators.required, Validators.minLength(1)]),
     objectiveLatitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
     objectiveLongitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    objectivePhoto: new FormControl('')
+    objectivePhoto: new FormControl(''),
+    objectiveUrl: new FormControl('')
   });
 
   uploadImage(event: any) {
@@ -71,6 +73,7 @@ export class AddObjectiveComponent implements OnInit {
       schedule: this.schedule,
       latitude: this.latitude,
       longitude: this.longitude,
+      objectiveUrl: this.objectiveUrl,
       photo: this.photo
     };
       if (this.wrongImageFormat === '') {

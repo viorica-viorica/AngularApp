@@ -3,7 +3,8 @@
         <div class="sidenav-menu">
             <div style="text-align: center;">
                 <img src="../../../assets/profile-photo.jpg" class="profile-image">
-                <h4>Nume utilizator</h4>
+                <h4 *ngIf="!isLoggedIn">Nume utilizator</h4>
+                <h4 *ngIf="isLoggedIn">{{firstLastName}}</h4>
             </div>
             <ul style="list-style-type:none">
                 <li><a routerLink="home" (click)="sidenav.toggle()"><i class="fas fa-home"></i>Acasă</a></li>
@@ -12,7 +13,8 @@
                 <li><a routerLink="my-hotels" (click)="sidenav.toggle()"><i class="fas fa-hotel"></i>Cazarea mea</a></li>
             </ul>  
             <div>
-                <a class="logout_btn" mat-raised-button routerLink="\">Deconectare</a>
+                <a class="logout_btn" *ngIf="isLoggedIn" (click)="logout()">Deconectare</a>
+                <a class="login_btn" *ngIf="!isLoggedIn" routerLink="login-register/login">Autentificare/Înregistrare</a>
             </div> 
         </div>
     </mat-sidenav>
@@ -21,14 +23,17 @@
             <button mat-icon-button aria-label="menu icon" (click)="sidenav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <span>Brașov</span>
+            <span>Haide la Brașov<span class="username" *ngIf="isLoggedIn">, {{username}}</span></span>
 
             <div class="spacer"></div>
    
-            <a mat-button routerLink="home">Acasă</a>
-            <a mat-button routerLink="hotels">Hoteluri</a>
-            <a mat-button routerLink="restaurants">Restaurante</a>
-            <a class="login_btn" mat-raised-button routerLink="login-register">Autentificare/Înregistrare</a>
+            <a mat-button routerLink="home" routerLinkActive="menu-item-active">Acasă</a>
+            <a mat-button routerLink="hotels" routerLinkActive="menu-item-active">Hoteluri</a>
+            <a mat-button routerLink="restaurants" routerLinkActive="menu-item-active">Restaurante</a>
+            <a mat-button routerLink="touristic-objective" routerLinkActive="menu-item-active">Obiective turistice</a>
+            <a mat-button *ngIf="isAdmin" routerLink="/admin-page" routerLinkActive="menu-item-active">Administrator</a>
+            <a class="login_btn" *ngIf="!isLoggedIn" mat-raised-button routerLink="login-register/login">Autentificare/Înregistrare</a>
+            <a class="logout_btn" *ngIf="isLoggedIn" mat-raised-button (click)="logout()">Deconectare</a>
         </mat-toolbar>
         <div class="page-content">
             <router-outlet></router-outlet>

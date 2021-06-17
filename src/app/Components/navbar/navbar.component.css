@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
 .spacer {
   flex: 1 1 auto;
 }
@@ -10,7 +12,7 @@ mat-sidenav-container{
 
 mat-toolbar{
   color:seashell;
-  background-color: rgba(17, 16, 16, 0.815);
+  background-color: rgba(17, 16, 16, 0.815)!important;
   transition-property: text;
 }
 
@@ -18,36 +20,50 @@ mat-toolbar a:hover{
   color: darkgray;
 }
 
-mat-toolbar .login_btn{
+mat-toolbar .login_btn, .logout_btn{
   background: linear-gradient(to right,#75213d,#dc990f);
   color: rgb(250, 246, 246);
   transition-property: text;
 }
 
-mat-toolbar .login_btn:hover{
+mat-toolbar .logout_btn{
+  top: -30px;
+  width: 130px;
+}
+
+mat-toolbar .login_btn:hover, .logout_btn:hover{
   color:rgb(61, 60, 60);
 }
 
-mat-sidenav .logout_btn{
+mat-sidenav .login_btn, .logout_btn{
   background: linear-gradient(to right,#75213d,#dc990f);
   color: rgb(250, 246, 246);
-  width: 150px;
-  height: 45px;
-  left: 16%;
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  height: 42px;
   margin-top: 40px;
   padding-left: 1%;
   padding-right: 1%;
-  line-height: 47px;
+  line-height: 42px;
+  border-radius: 5px 5px 5px 5px;
   transition-property: text;
 }
 
-mat-sidenav .logout_btn:hover{
-  color:rgb(61, 60, 60);
+mat-sidenav .logout_btn{
+  width: 200px;
+  margin: auto;
+  text-align: left!important;
+  line-height: 39px;
+}
+
+mat-sidenav .login_btn:hover, .logout_btn:hover{
+  color:rgb(43, 41, 41);
 }
 
 mat-sidenav-container{
   height: 100vh!important;
-  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../../../assets/White-Mountain-Property-1.jpg)!important;
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(/../../assets/White-Mountain-Property-1.jpg)!important;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -59,7 +75,7 @@ mat-sidenav, mat-sidenav-content{
 }
 
 mat-sidenav{
-  background-color: rgb(25, 27, 27);
+  background-color: rgb(25, 27, 27)!important;
   width: 230px;
   padding: 2em 0em;
   box-shadow: 0px 0px 10px 3px grey;
@@ -104,4 +120,13 @@ mat-sidenav a:hover{
 
 mat-sidenav i{
   padding-right: 10px;
+}
+
+span .username{
+  /* font-family: Brush Script MT, Brush Script Std, cursive, serif; */
+  font-family: 'Dancing Script', cursive;
+}
+
+.menu-item-active{
+  color: #d6d0d2;
 }

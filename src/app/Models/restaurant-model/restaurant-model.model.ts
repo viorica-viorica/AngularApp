@@ -6,4 +6,6 @@ export class RestaurantModel {
     latitude!: number;
     longitude!: number;
     photo!: File;
+    restaurantUrl!: string;
+    menuUrl!: string;
 }
