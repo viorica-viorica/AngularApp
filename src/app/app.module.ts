@@ -7,8 +7,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CarouselModule, WavesModule, MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { AgmCoreModule } from '@agm/core';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -129,10 +127,7 @@ import { EditReservationComponent } from './Components/my-hotels/edit-reservatio
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatButtonModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCO-radFmBvWu8enR_JlVnyx89dMb_LBTA'
-    })
+    MatButtonModule
     ],
   providers: [
     HotelServiceService,

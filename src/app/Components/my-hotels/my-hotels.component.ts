@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'AngularApp/node_modules/rxjs';
+import { Subscription } from 'rxjs';
 import { ReservationModel } from 'src/app/Models/reservation-model/reservation-model.model';
 import { UsersModel } from 'src/app/Models/users-model/users-model.model';
 import { AuthService } from 'src/app/Services/auth.service';

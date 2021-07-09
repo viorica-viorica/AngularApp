@@ -1,6 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { TouristicObjectiveModel } from 'AngularApp/src/app/Models/touristic-objective-model/touristic-objective-model.model';
+import { TouristicObjectiveModel } from 'src/app/Models/touristic-objective-model/touristic-objective-model.model';
 
 @Injectable({
   providedIn: 'root'
