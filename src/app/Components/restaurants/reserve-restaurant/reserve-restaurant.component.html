@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="title">
+        <h4>
+            {{restaurant.name}}
+        </h4>
+    </div>
+    <hr>
+    <form [formGroup]="reservationForm">
+        <div class="row reservation">
+            <div class="col-5 image m-auto">
+                <img src="../../../assets/Carousel/hotel-ambient.jpg" alt="">
+            </div>
+            <div class="col-7 details m-auto">
+                <div class="row data">
+                    <div class="col-md-1 m-auto"><i class="far fa-calendar-alt"></i></div>
+                    <div class="col-md-11 m-auto calendar-form">
+                        <div class="row label">
+                            <label>Data rezervării:</label><br>
+                        </div>
+                        <div class="row calendars">
+                            <input name="date" min="today" max="30-12-2021" required pattern="\d{2}-\d{2}-\d{4}" formControlName="reservationDate" type="date"
+                                    class="calendar">
+                        </div>
+                    </div>
+                </div>
+                <div class="row time">
+                    <div class="col-md-1 m-auto"><i class="far fa-clock"></i></div>
+                    <div class="col-md-11 m-auto">
+                        <label for="appt">Ora pentru care se face rezervarea:</label><br>
+                        <input name="time" type="time" formControlName="reservationTime" id="appt">
+                    </div>
+                </div>
+                <div class="row guests">
+                    <div class="col-md-1 m-auto"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="col-md-11">
+                        Program:<br>
+                        {{restaurant.schedule}}
+                    </div>
+                </div>
+                <div class="row reserv-button">
+                    <div class="row reserv-button">
+                        <div class="alert-msg">
+                            <div style="color: red; font-size: 16px">
+                                {{emptyData}}
+                            </div>
+                            <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                                <strong>Minunat!</strong> {{ successMessage }}
+                            </div>
+                            <div *ngIf="failMessage" class="alert alert-danger" role="alert">
+                                <strong>Uups!</strong> {{ failMessage }}
+                            </div>
+                        </div>
+                        <button type="submit" class="button">Rezervă</button>
+                    </div>
+                    <button type="submit" class="button" (click)="reserveRestaurant()">Rezervă</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

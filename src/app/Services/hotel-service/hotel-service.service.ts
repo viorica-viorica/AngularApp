@@ -33,6 +33,7 @@ export class HotelServiceService {
     newHotel.children = hotel.children;
     newHotel.latitude = hotel.latitude;
     newHotel.longitude = hotel.longitude;
+    newHotel.hotelUrl = hotel.hotelUrl;
     // formData.photo = hotel.photo;
     return this.http.post<HotelModel>(this.APIUrl, newHotel);
   }

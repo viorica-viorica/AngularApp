@@ -29,6 +29,8 @@ export class RestaurantServiceService {
     newRestaurant.latitude = restaurant.latitude;
     newRestaurant.longitude = restaurant.longitude;
     newRestaurant.photo = restaurant.photo;
+    newRestaurant.restaurantUrl = restaurant.restaurantUrl;
+    newRestaurant.menuUrl = restaurant.menuUrl;
     return this.http.post<RestaurantModel>(this.APIUrl, newRestaurant);
   }
 

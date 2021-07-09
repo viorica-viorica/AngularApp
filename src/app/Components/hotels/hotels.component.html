@@ -1,5 +1,5 @@
 <div class="container">
-    <section class="top-side">
+    <section class="top-side" [hidden]="openedFilter">
         <div class="title">
             <h2>Cazare</h2>
         </div>
@@ -89,7 +89,7 @@
         </div>
     </section>
 
-    <section class="second-side">
+    <section class="second-side" [hidden]="openedHotel">
         <div class="row sleep">
             <p>„Nimic nu te face să te simți mai bine decât atunci când intri într-un pat de hotel, iar cearșafurile se simt atât de bine.” - Bobby Berk</p>
         </div>
@@ -110,10 +110,14 @@
                 </div>
                 <div class="col-md-3 m-auto price">
                     <h6 style="text-align: center;">Preț: {{hotel.price}} RON</h6><br>
-                    <button class="button-reservation">Fă o rezervare</button>
+                    <button class="button-reservation" routerLink="reservation/{{hotel.hotelId}}" (click)="toggle()">Fă o rezervare</button>
                 </div>
             </div>
             <hr>
         </div>
+    </section>
+
+    <section [hidden]="openedReservation">
+        <router-outlet></router-outlet>
     </section>
 </div>

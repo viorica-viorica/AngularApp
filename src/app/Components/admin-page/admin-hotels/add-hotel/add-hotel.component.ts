@@ -45,13 +45,13 @@ export class AddHotelComponent implements OnInit {
     hotelLatitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
     hotelLongitude: new FormControl('', [Validators.required, Validators.minLength(1)]),
     hotelPhoto: new FormControl(''),
-    hotelUrl: new FormControl('')
+    url: new FormControl('', [Validators.required, Validators.minLength(1)])
   });
 
   checkHotel() {
     if (!this.name || !this.address || !this.price || !this.rooms || !this.adults || !this.children || !this.latitude
-      || !this.longitude) {
-      this.emptyData = "Toate câmpurile sunt obloigatorii!"
+      || !this.longitude || !this.hotelUrl) {
+      this.emptyData = "Toate câmpurile sunt obligatorii!"
       setTimeout(() => {
         this.emptyData = '';
       },

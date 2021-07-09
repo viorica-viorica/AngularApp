@@ -19,13 +19,13 @@
         <tbody>
             <tr *ngFor="let dataItem of ObjectivesList">
                 <!-- <td>{{dataItem.objectiveId}}</td> -->
-                <td>{{dataItem.name}}</td>
-                <td>{{dataItem.address}}</td>
-                <td>{{dataItem.description}}</td>
-                <td>{{dataItem.schedule}}</td>
-                <td>{{dataItem.latitude}}</td>
-                <td>{{dataItem.longitude}}</td>
-                <td>
+                <td class="m-auto">{{dataItem.name}}</td>
+                <td class="m-auto">{{dataItem.address}}</td>
+                <td class="m-auto">{{dataItem.description}}</td>
+                <td class="m-auto">{{dataItem.schedule}}</td>
+                <td class="m-auto">{{dataItem.latitude}}</td>
+                <td class="m-auto">{{dataItem.longitude}}</td>
+                <td class="m-auto">
                     <button type="button" class="edit btn btn-light mr-1" routerLink="../edit-objective/{{dataItem.objectiveId}}">
                         <i class="far fa-edit"></i>
                     </button>

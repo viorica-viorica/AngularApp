@@ -13,6 +13,9 @@ export class RestaurantsComponent implements OnInit, OnDestroy {
   private subcription!: Subscription;
   restaurantsList: RestaurantModel[] = [];
 
+  openedReservation = true;
+  openedRestaurant = false;
+
   constructor(private restaurantService: RestaurantServiceService) { }
 
   ngOnInit(): void {
@@ -29,5 +32,10 @@ export class RestaurantsComponent implements OnInit, OnDestroy {
     this.restaurantService.getRestaurantsList().subscribe(data => {
       this.restaurantsList = data;
     });
+  }
+
+  toggle(){
+    this.openedReservation = false;
+    this.openedRestaurant = true;
   }
 }

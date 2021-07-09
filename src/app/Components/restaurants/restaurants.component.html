@@ -1,5 +1,5 @@
 <div class="container">
-    <section>
+    <section [hidden]="openedRestaurant">
         <div class="title">
             <h4>Restaurante în Brașov</h4>
         </div>
@@ -7,10 +7,10 @@
 
         <div class="view-restaurants" *ngFor="let restaurant of restaurantsList">
             <div class="row restaurants">
-                <div class="col-4 image">
+                <div class="col-4 image m-auto">
                     <img src="../../../assets/Restaurante/greek-restaurant.jpg" alt="">
                 </div>
-                <div class="col-5 details">
+                <div class="col-5 details m-auto">
                     <a href="{{restaurant.restaurantUrl}}"><h4>{{restaurant.name}}</h4></a>
                     <h5>Adresa: {{restaurant.address}}</h5>
                     <p>{{restaurant.schedule}}</p>
@@ -18,10 +18,14 @@
                     <!--isOpendRestaurant-->
                 </div>
                 <div class="col-3 m-auto">
-                    <button class="button-reservation">Fă o rezervare</button>
+                    <button class="button-reservation" (click)="toggle()" routerLink="reserve-restaurant/{{restaurant.restaurantId}}">Fă o rezervare</button>
                 </div>
             </div>
             <hr>
         </div>
+    </section>
+
+    <section [hidden]="openedReservation">
+        <router-outlet></router-outlet>
     </section>
 </div>

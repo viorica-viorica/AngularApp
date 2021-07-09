@@ -16,6 +16,16 @@ export class HotelsComponent implements OnInit, OnDestroy {
   private subcription!: Subscription;
   HotelsList: HotelModel[] = [];
 
+  openedFilter = false;
+  openedHotel = false;
+  openedReservation = true;
+
+  toggle(){
+    this.openedFilter = true;
+    this.openedHotel = true;
+    this.openedReservation = false;
+  }
+
   increment(value: string) {
     if (value == 'rooms') {
       if (this.rooms < 3) {
@@ -56,6 +66,12 @@ export class HotelsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.refreshHotelsList();
+    // if (this.HotelsList == null){
+    //   console.log("Connection faild");
+    // }
+    // else{
+    //   console.log("Connection successfully");
+    // }
   }
 
   ngOnDestroy() {

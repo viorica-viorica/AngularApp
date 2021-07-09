@@ -1,3 +1,6 @@
+import { EditReservationComponent } from './Components/my-hotels/edit-reservation/edit-reservation.component';
+import { ReserveRestaurantComponent } from './Components/restaurants/reserve-restaurant/reserve-restaurant.component';
+import { ReservationComponent } from './Components/hotels/reservation/reservation/reservation.component';
 import { ScheduleATripComponent } from './Components/home/map/schedule-a-trip/schedule-a-trip.component';
 import { TouristicObjectivesComponent } from './Components/touristic-objectives/touristic-objectives.component';
 import { ResetPasswordComponent } from './Components/login-register/reset-password/reset-password.component';
@@ -47,11 +50,25 @@ const routes: Routes = [
   },
   {
     path: 'hotels',
-    component: HotelsComponent
+    component: HotelsComponent,
+    children: [
+      {
+        path: 'reservation/:id',
+        component: ReservationComponent,
+        canActivate: [AuthGuardService],
+        data: { expectedRoles: [Role.USER, Role.ADMIN] }
+      }
+    ]
   },
   {
     path: 'restaurants',
-    component: RestaurantsComponent
+    component: RestaurantsComponent,
+    children: [
+      {
+        path: 'reserve-restaurant/:id',
+        component: ReserveRestaurantComponent
+      }
+    ]
   },
   {
     path: 'touristic-objective',
@@ -94,7 +111,13 @@ const routes: Routes = [
     path: 'my-hotels',
     component: MyHotelsComponent,
     canActivate: [AuthGuardService],
-    data: { expectedRoles: [Role.USER, Role.ADMIN] }
+    data: { expectedRoles: [Role.USER, Role.ADMIN] },
+    children: [
+      {
+        path: 'edit-reservation/:id',
+        component: EditReservationComponent
+      }
+    ]
   },
   {
     path: 'carousel',
@@ -196,12 +219,7 @@ const routes: Routes = [
         component: ViewObjectivesComponent,
         canActivate: [AuthGuardService],
         data: { expectedRoles: [Role.ADMIN] }
-      },
-      // {
-      //   path: '**',
-      //   redirectTo: '/home',
-      //   pathMatch: 'full'
-      // }
+      }
     ]
   },
 

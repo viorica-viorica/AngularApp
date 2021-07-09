@@ -1,14 +1,14 @@
 <hr>
 <div class="row content">
     <div class="col-md-6">
-        <mat-selection-list color="primary" #objectives>
-            <mat-list-option *ngFor="let objective of objectivesList">
+        <mat-selection-list color="primary" #objectives [(ngModel)]="selectedObjectives">
+            <mat-list-option *ngFor="let objective of objectivesList" [value]="objective">
               {{ objective.name }}
             </mat-list-option>
           </mat-selection-list>
           
           <p>
-            Opțiuni selectate: {{ objectives.selectedOptions.selected.length }}
+            Opțiuni selectate: {{ objectives.selectedOptions.selected.length }}<br>
           </p>
           <button type="submit" class="button" (click)="orderSelectedObjectives()">Gata</button>
     </div>

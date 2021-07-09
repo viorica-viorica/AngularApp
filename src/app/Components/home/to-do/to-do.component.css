@@ -34,3 +34,11 @@
     background: rgba(0,0,0,0.4);
     box-shadow: 0px 0px 7px 2px grey!important;
   }
+  
+  .carousel{
+    width: 100%;
+  }
+
+  hr{
+    background-color: white;
+  }

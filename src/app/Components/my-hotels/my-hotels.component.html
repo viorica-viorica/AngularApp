@@ -1,21 +1,44 @@
 <div class="container">
-    <div class="title">
-        <h4>
-            Cazarea mea
-        </h4>
+    <div class="my-reservations" [hidden]="isHiddenMyReservations">
+        <div class="title">
+            <h4>
+                Rezervările mele
+            </h4>
+        </div>
+    
+        <table class="table m-auto">
+            <thead>
+                <tr>
+                    <th>Numele rezervării</th>
+                    <th>Data de început</th>
+                    <th>Data de final</th>
+                    <th>Intervalul orar</th>
+                    <th>Preț</th>
+                    <th>Opțiuni</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <tr *ngFor="let reservation of ReservationsList">
+                    <td>{{reservation.reservationName}}</td>
+                    <td>{{reservation.startDate}}</td>
+                    <td>{{reservation.endDate}}</td>
+                    <td>{{reservation.time}}</td>
+                    <td>{{reservation.price}}</td>
+                    <td>
+                        <button type="button" class="edit btn btn-light mr-1" (click)="toggle()" routerLink="edit-reservation/{{reservation.reservationId}}">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <button type="button" class="delete btn btn-light mr-1" (click)="deleteItem(reservation)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <hr>
-    <div class="row restaurants">
-        <div class="col-4 image">
-            <img src="../../../assets/Carousel/hotel-ambient.jpg" alt="">
-        </div>
-        <div class="col-5 details">
-            <h6>Hotel Ambient</h6>
-            Adresa: ...
-        </div>
-        <div class="col-3">
-            Rating
-        </div>
-    </div>
-    <hr>
+
+    <div class="edit" [hidden]="isHiddenEditForm">
+        <router-outlet></router-outlet>
+    </div>  
 </div>

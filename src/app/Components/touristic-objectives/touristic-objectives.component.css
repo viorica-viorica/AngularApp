@@ -69,3 +69,7 @@ mat-card-content p{
   .button:hover{
     color:rgb(61, 60, 60);
   }
+
+  hr{
+      background-color: white;
+  }

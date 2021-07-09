@@ -9,8 +9,8 @@
             <ul style="list-style-type:none">
                 <li><a routerLink="home" (click)="sidenav.toggle()"><i class="fas fa-home"></i>Acasă</a></li>
                 <li><a routerLink="my-profile" (click)="sidenav.toggle()"><i class="fas fa-address-card"></i>Profilul meu</a></li>
-                <li><a routerLink="my-restaurants" (click)="sidenav.toggle()"><i class="fas fa-utensils"></i>Restaurantele mele</a></li>
-                <li><a routerLink="my-hotels" (click)="sidenav.toggle()"><i class="fas fa-hotel"></i>Cazarea mea</a></li>
+                <!-- <li><a routerLink="my-restaurants" (click)="sidenav.toggle()"><i class="fas fa-utensils"></i>Restaurantele mele</a></li> -->
+                <li><a routerLink="my-hotels" (click)="sidenav.toggle()"><i class="fas fa-clipboard-check"></i>Rezervările mele</a></li>
             </ul>  
             <div>
                 <a class="logout_btn" *ngIf="isLoggedIn" (click)="logout()">Deconectare</a>

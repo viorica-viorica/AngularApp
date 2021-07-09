@@ -3,8 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CarouselModule, WavesModule, MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AgmCoreModule } from '@agm/core';
 
-import { CarouselModule, WavesModule, MDBBootstrapModulesPro } from 'ng-uikit-pro-standard'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,6 +61,9 @@ import { ResetPasswordComponent } from './Components/login-register/reset-passwo
 import { PasswordConfirmationValidatorService } from './Services/password-service/password-confirmation-validator.service';
 import { TouristicObjectivesComponent } from './Components/touristic-objectives/touristic-objectives.component';
 import { ScheduleATripComponent } from './Components/home/map/schedule-a-trip/schedule-a-trip.component';
+import { ReservationComponent } from './Components/hotels/reservation/reservation/reservation.component';
+import { ReserveRestaurantComponent } from './Components/restaurants/reserve-restaurant/reserve-restaurant.component';
+import { EditReservationComponent } from './Components/my-hotels/edit-reservation/edit-reservation.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +98,10 @@ import { ScheduleATripComponent } from './Components/home/map/schedule-a-trip/sc
     ForgottenPasswordComponent,
     ResetPasswordComponent,
     TouristicObjectivesComponent,
-    ScheduleATripComponent
+    ScheduleATripComponent,
+    ReservationComponent,
+    ReserveRestaurantComponent,
+    EditReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -115,8 +125,15 @@ import { ScheduleATripComponent } from './Components/home/map/schedule-a-trip/sc
     WavesModule,
     MatCardModule,
     ToastrModule.forRoot(),
-    MDBBootstrapModulesPro.forRoot()
-  ],
+    MDBBootstrapModulesPro.forRoot(),
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCO-radFmBvWu8enR_JlVnyx89dMb_LBTA'
+    })
+    ],
   providers: [
     HotelServiceService,
     ReservationServiceService,

@@ -17,8 +17,23 @@ export class ReservationServiceService {
     return this.http.get<ReservationModel[]>(this.APIUrl);
   }
 
-  addReservation(reservation: ReservationModel): Observable<ReservationModel>{
-    return this.http.post<ReservationModel>(this.APIUrl, reservation);
+  getUsersReservationsList(username: string): Observable<ReservationModel[]>{
+    return this.http.get<ReservationModel[]>(`${this.APIUrl}/getUsersReserv/${username}`);
+  }
+
+  getReservation(id: number): Observable<ReservationModel>{
+    return this.http.get<ReservationModel>(`${this.APIUrl}/${id}`);
+  }
+
+  addReservation(id: number, reservation: ReservationModel): Observable<ReservationModel>{
+    const newReservation = new ReservationModel();
+    newReservation.username = reservation.username;
+    newReservation.reservationName = reservation.reservationName;
+    newReservation.startDate = reservation.startDate;
+    newReservation.endDate = reservation.endDate;
+    newReservation.time = reservation.time;
+    newReservation.price = reservation.price;
+    return this.http.post<ReservationModel>(`${this.APIUrl}/${id}`, newReservation);
   }
 
   updateReservation(id: number, reservation: ReservationModel): Observable<ReservationModel>{

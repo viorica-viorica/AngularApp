@@ -30,6 +30,7 @@ export class TouristicObjectiveServiceService {
     newObjective.latitude = objective.latitude;
     newObjective.longitude = objective.longitude;
     newObjective.photo = objective.photo;
+    newObjective.objectiveUrl = objective.objectiveUrl;
     return this.http.post<TouristicObjectiveModel>(this.APIUrl, newObjective);
   }
 

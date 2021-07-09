@@ -6,7 +6,7 @@
                 Locuri de văzut, modalități de recreere și experiențe de neuitat.
             </p>
         </div>
-        <div class="col-md-10 m-auto">
+        <div class="col-md-10 m-auto carousel">
             <mdb-carousel id="'options'" [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [isControls]="true"
                 class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'">
                 <ng-container *ngSwitchCase="'single'">
@@ -19,9 +19,9 @@
                                     <h6> {{ objective.name }}</h6>
                                 </mdb-card-title>
                                 <p>
-                                    {{ objective.address }} <br>
+                                    Adresa: {{ objective.address }} <br>
                                     {{ objective.description }} <br>
-                                    {{ objective.schedule }}
+                                    Program: {{ objective.schedule }}
                                 </p>
                             </mdb-card-body>
                             <mdb-card-footer>
@@ -33,7 +33,7 @@
 
                 <ng-container *ngSwitchCase="'multiple'">
                     <mdb-carousel-item *ngFor="let item of slides; let i = index">
-                        <div class="col-md-4" *ngFor="let objective of item; let objectiveIndex = index">
+                        <div class="col-md-4 m-auto" *ngFor="let objective of item; let objectiveIndex = index">
                             <mdb-card class="my-1">
                                 <mdb-card-img src="../../../../assets/Objectives/9e2f6de991858d3851013b472ce0ddbb.jpg"
                                     alt="Card image cap">
@@ -43,9 +43,8 @@
                                         <h6>{{ objective.name }}</h6>
                                     </mdb-card-title>
                                     <p>
-                                        {{ objective.address }} <br>
-                                        {{ objective.description }} <br>
-                                        {{ objective.schedule }}
+                                        Adresa: {{ objective.address }} <br>
+                                        Program: {{ objective.schedule }}
                                     </p>
                                 </mdb-card-body>
                                 <mdb-card-footer>

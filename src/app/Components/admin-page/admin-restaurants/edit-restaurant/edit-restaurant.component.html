@@ -2,84 +2,81 @@
     <div class="form-title">
         <h4>Actualizează restaurant</h4>
     </div>
-    <form #f="ngForm" (ngSubmit)="editRestaurant(f)"><hr>
+    <form #f="ngForm" (ngSubmit)="editRestaurant(f)">
+        <hr>
         <div class="row components">
             <div class="col-md-5 m-auto">
                 <div class="form-group">
-                    <img src="../../../../../assets/Restaurante/restaurant_icon1.jpg" class="image" alt="">        
+                    <img src="../../../../../assets/Restaurante/restaurant_icon1.jpg" class="image" alt="">
                     <input class="upload py-2" type="file" accept=".jpg,.jpef,.png,.gif" id="customFile"
                         (change)="uploadImage($event)" name="photo" [(ngModel)]="restaurant.photo" required>
                     <div class="file-validation">{{wrongImageFormat}}</div>
                     <button class="button">Încarcă fotografia</button>
                 </div>
             </div>
-            
+
             <div class="add-hotel col-md-7 m-auto">
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="id">ID: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="restaurantId" [(ngModel)]="restaurant.restaurantId" 
-                        placeholder="Nume restaurant" class="form-control" required>
-                    </div>
+                    <input type="hidden" name="restaurantId" [(ngModel)]="restaurant.restaurantId" required>
                 </div>
-                
-                <div class="row">
-                    <label class="col-md-2 m-auto" for="name">Nume restaurant: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="name" [(ngModel)]="restaurant.name" 
-                        placeholder="Nume restaurant" class="form-control" required>
-                    </div>
-                </div>
-                
 
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="address">Adresa: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="address" [(ngModel)]="restaurant.address" 
-                        placeholder="Adresa" class="form-control" required>
+                    <label class="col-md-3 m-auto" for="name">Nume restaurant: </label>
+                    <div class="form-group col-md-9 m-auto">
+                        <input type="text" name="name" [(ngModel)]="restaurant.name" placeholder="Nume restaurant"
+                            class="form-control" required>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <label class="col-md-3 m-auto" for="address">Adresa: </label>
+                    <div class="form-group col-md-9 m-auto">
+                        <input type="text" name="address" [(ngModel)]="restaurant.address" placeholder="Adresa"
+                            class="form-control" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="schedule">Program: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="schedule" [(ngModel)]="restaurant.schedule"
-                        placeholder="Program" class="form-control" required>
+                    <label class="col-md-3 m-auto" for="schedule">Program: </label>
+                    <div class="form-group col-md-9 m-auto">
+                        <input type="text" name="schedule" [(ngModel)]="restaurant.schedule" placeholder="Program"
+                            class="form-control" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="latitude">Latitudine: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="latitude" [(ngModel)]="restaurant.latitude"
-                        placeholder="Latitudine" class="form-control" required>
+                    <label class="col-md-3 m-auto" for="latitude">Latitudine: </label>
+                    <div class="form-group col-md-9 m-auto">
+                        <input type="text" name="latitude" [(ngModel)]="restaurant.latitude" placeholder="Latitudine"
+                            class="form-control" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="longitude">Longitudine: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="longitude" [(ngModel)]="restaurant.longitude"
-                        placeholder="Longitudine" class="form-control" required>
+                    <label class="col-md-3 m-auto" for="longitude">Longitudine: </label>
+                    <div class="form-group col-md-9 m-auto">
+                        <input type="text" name="longitude" [(ngModel)]="restaurant.longitude" placeholder="Longitudine"
+                            class="form-control" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="restaurantUrl">Site-ul restaurantului: </label>
-                    <div class="form-group col-md-10 m-auto">
+                    <label class="col-md-3 m-auto" for="restaurantUrl">Site-ul restaurantului: </label>
+                    <div class="form-group col-md-9 m-auto">
                         <input type="text" name="restaurantUrl" [(ngModel)]="restaurant.restaurantUrl"
-                        placeholder="Site-ul restaurantului" class="form-control" required>
+                            placeholder="Site-ul restaurantului" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="row">
-                    <label class="col-md-2 m-auto" for="menuUrl">Meniu: </label>
-                    <div class="form-group col-md-10 m-auto">
-                        <input type="text" name="menuUrl" [(ngModel)]="restaurant.menuUrl"
-                        placeholder="Meniu" class="form-control" required>
+                    <label class="col-md-3 m-auto" for="menuUrl">Meniu: </label>
+                    <div class="form-group col-md-9 m-auto">
+                        <input type="text" name="menuUrl" [(ngModel)]="restaurant.menuUrl" placeholder="Meniu"
+                            class="form-control" required>
                     </div>
                 </div>
-        
+
                 <div class="form-group">
                     <div class="alert-msg">
                         <div style="color: red; font-size: 16px">
@@ -92,10 +89,10 @@
                             <strong>Uups!</strong> {{ failMessage }}
                         </div>
                     </div>
-        
+
                     <button type="submit" class="button">Actualizează restaurant</button>
                 </div>
             </div>
-        </div>    
-    </form>    
+        </div>
+    </form>
 </div>

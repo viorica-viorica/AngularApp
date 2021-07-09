@@ -15,13 +15,7 @@
         </div>
 
         <div class="add-hotel col-md-7 m-auto">
-            <div class="row">
-                <label class="col-md-3 m-auto" for="id">ID: </label>
-                <div class="form-group col-md-9 m-auto">
-                    <input type="text" name="hotelId" [(ngModel)]="hotel.hotelId" placeholder="Id hotel"
-                        class="form-control" required>
-                </div>
-            </div>
+            <input type="hidden" name="hotelId" [(ngModel)]="hotel.hotelId" placeholder="Id hotel" required>
 
             <div class="row">
                 <label class="col-md-3 m-auto" for="name">Nume hotel: </label>
