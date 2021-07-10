@@ -23,3 +23,51 @@ google-map {
   .button:hover{
     color:rgb(61, 60, 60);
   }
+  
+  hr{
+    background-color: white;
+  }
+
+  .result{
+    width: 100%;
+    margin: auto; 
+    padding-left: 3%;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1px solid white;
+  }
+
+  .travel-mode{
+    width: 100%!important;
+    display: inline-flex;
+    align-content: center;
+  }
+
+  .travel{
+    width: 20%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin:5px auto;
+    margin-top: 3%;
+    border: 0;
+    outline: none;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 30px;
+    color: #fff;
+    transition-property: text;
+  }
+
+  .travel i{
+    font-size: larger;
+  }
+
+  .travel:focus {
+    border: none;
+    color: rgb(161, 161, 161);
+  }
+
+  .travel:hover{
+    color: rgb(131, 78, 10);
+  }

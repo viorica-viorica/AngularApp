@@ -15,9 +15,53 @@
             </p>
         </div>
         <div class="col-md-6 m-auto maps" *ngIf="apiLoaded | async">
-            <google-map [options]="options"></google-map>
-            <button type="button" class="button" routerLink="schedule-a-trip">Programează o călătorie</button>
+            <google-map [options]="options">
+                <map-marker #markerElem *ngFor="let marker of markers, let i = index" [position]="positionMarkers[i]"
+                    [options]="markerOptions" [label]="markersTitle[i]">
+                </map-marker>
+
+                <map-info-window>{{ infoContent }}</map-info-window>
+                <div id="directions-panel"></div>
+            </google-map>
+            <button type="button" class="button" (click)="tripForm()">Programează o călătorie</button>
         </div>
     </div>
-    <router-outlet></router-outlet>
+    <hr [hidden]="isHidden">
+    <div class="row content" [hidden]="isHidden">
+        <div class="col-md-6 m-auto">
+            <mat-selection-list color="primary" #objectives [(ngModel)]="selectedObjectives">
+                <mat-list-option *ngFor="let objective of objectivesList" [value]="objective">
+                    {{ objective.name }}
+                </mat-list-option>
+            </mat-selection-list>
+
+            <p>
+                Opțiuni selectate: {{ objectives.selectedOptions.selected.length }}<br>
+            </p>
+            <button type="submit" class="button" (click)="orderSelectedObjectives()">Gata</button>
+        </div>
+        <div class="col-md-6 m-auto result" [hidden]="ishiddenList">
+            <div class="travel-mode m-auto">
+                <button class="travel" (click)="drivingMode()"><i class="fas fa-car"></i></button>
+                <button class="travel" (click)="walkingMode()"><i class="fas fa-walking"></i></button>    
+            </div>
+            <div class="route" *ngIf="orderedList[0]">
+                <p>
+                    <b>Locația curentă: {{routes[routes.length - 1].legs[0].start_address}}</b><br>
+                    Distanța până la prima locație: {{routes[routes.length - 1].legs[0].distance.text}}<br>
+                    Durata: {{routes[routes.length - 1].legs[0].duration.text}}
+                </p>
+                <p *ngFor="let order of orderedList, let i = index">
+                    <b>Locația {{i + 1}}</b><br>
+                    {{order.name}}<br>
+                    {{order.address}}<br>
+                    <span *ngIf="i != (orderedList.length - 1)">
+                        Distanța până la următoarea locație: {{routes[routes.length - 1].legs[i + 1].distance.text}}<br>
+                        Durata: {{routes[routes.length - 1].legs[i + 1].duration.text}}
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -28,10 +28,10 @@ export class ScheduleATripComponent implements OnInit {
 
   orderSelectedObjectives(){
     console.log(this.selectedObjectives);
-    this.tripService.selectedObjectives.subscribe((data: TouristicObjectiveModel[]) =>{
-      this.orderedList = data;
-      console.log("ordered list", data);
-    });
+    // this.tripService.selectedObjectives.subscribe((data: TouristicObjectiveModel[]) =>{
+    //   this.orderedList = data;
+    //   console.log("ordered list", data);
+    // });
     this.tripService.objectives = this.selectedObjectives;
 
     console.log(this.orderedList);
