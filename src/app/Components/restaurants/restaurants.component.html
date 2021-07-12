@@ -8,7 +8,7 @@
         <div class="view-restaurants" *ngFor="let restaurant of restaurantsList">
             <div class="row restaurants">
                 <div class="col-4 image m-auto">
-                    <img src="../../../assets/Restaurante/greek-restaurant.jpg" alt="">
+                    <img src="../../../assets/Restaurante/{{restaurant.photo}}" alt="">
                 </div>
                 <div class="col-5 details m-auto">
                     <a href="{{restaurant.restaurantUrl}}"><h4>{{restaurant.name}}</h4></a>

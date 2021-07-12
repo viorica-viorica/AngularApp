@@ -57,3 +57,7 @@ hr{
   .button:hover{
     color:rgb(61, 60, 60);
   }
+
+  .reserv-button .alert-msg{
+      width: 100%;
+  }

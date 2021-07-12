@@ -11,7 +11,6 @@ export class RestaurantServiceService {
   constructor(private http:HttpClient) { }
 
   readonly APIUrl = "http://localhost:5000/api/Restaurant";
-  readonly PhotoUrl = "http://localhost:5000/Photos";
 
   getRestaurantsList(): Observable<RestaurantModel[]>{
     return this.http.get<RestaurantModel[]>(this.APIUrl);
@@ -40,9 +39,5 @@ export class RestaurantServiceService {
 
   deleteRestaurant(id: number): Observable<RestaurantModel>{
     return this.http.delete<RestaurantModel>(`${this.APIUrl}/${id}`);
-  }
-
-  uploadPhoto(val:any): Observable<RestaurantModel>{
-    return this.http.post<RestaurantModel>(this.APIUrl+'/SaveFile', val);
   }
 }

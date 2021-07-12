@@ -5,7 +5,7 @@ export class RestaurantModel {
     schedule!: string;
     latitude!: number;
     longitude!: number;
-    photo!: File;
+    photo!: string;
     restaurantUrl!: string;
     menuUrl!: string;
 }

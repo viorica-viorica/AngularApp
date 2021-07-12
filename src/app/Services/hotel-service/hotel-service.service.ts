@@ -13,8 +13,6 @@ export class HotelServiceService {
   
   readonly APIUrl = "http://localhost:5000/api/Hotel";
   
-  readonly PhotoUrl = "http://localhost:5000/Photos";
-
   getHotelsList(): Observable<HotelModel[]> {
     return this.http.get<HotelModel[]>(this.APIUrl);
   }
@@ -34,7 +32,7 @@ export class HotelServiceService {
     newHotel.latitude = hotel.latitude;
     newHotel.longitude = hotel.longitude;
     newHotel.hotelUrl = hotel.hotelUrl;
-    // formData.photo = hotel.photo;
+    newHotel.photo = hotel.photo;
     return this.http.post<HotelModel>(this.APIUrl, newHotel);
   }
 
@@ -44,9 +42,5 @@ export class HotelServiceService {
 
   deleteHotel(id: number): Observable<HotelModel> {
     return this.http.delete<HotelModel>(`${this.APIUrl}/${id}`);
-  }
-
-  uploadPhoto(val: any): Observable<HotelModel> {
-    return this.http.post<HotelModel>(this.APIUrl + '/SaveFile', val);
   }
 }

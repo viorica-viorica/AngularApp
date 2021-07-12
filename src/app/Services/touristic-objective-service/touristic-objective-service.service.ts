@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class TouristicObjectiveServiceService {
 
   readonly APIUrl = "http://localhost:5000/api/TouristicObjective";
-  readonly PhotoUrl = "http://localhost:5000/Photos";
 
   constructor(private http:HttpClient) { }
 
@@ -40,9 +39,5 @@ export class TouristicObjectiveServiceService {
 
   deleteTouristicObjective(id: number): Observable<TouristicObjectiveModel>{
     return this.http.delete<TouristicObjectiveModel>(`${this.APIUrl}/${id}`);
-  }
-
-  uploadPhoto(val:any): Observable<TouristicObjectiveModel>{
-    return this.http.post<TouristicObjectiveModel>(this.APIUrl+'/touristicobjective/SaveFile', val);
   }
 }

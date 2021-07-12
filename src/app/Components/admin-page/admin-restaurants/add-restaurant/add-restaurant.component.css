@@ -58,3 +58,11 @@
       hr{
         background-color: white;
       }
+
+      .restaurantImage{
+        width: 100%;
+      }
+
+      .restaurantImage .image{
+        width: 100%;
+      }

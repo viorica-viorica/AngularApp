@@ -26,12 +26,13 @@ export class AddHotelComponent implements OnInit {
   children!: number;
   latitude!: number;
   longitude!: number;
-  photo!: File;
+  photo!: string;
   hotelUrl!: string;
   wrongImageFormat: String = '';
   successMessage!: string;
   failMessage!: string;
   emptyData!: string;
+  hotelImage: string = "../../../assets/Hotels/hotel-icon.jpg"
 
   HotelsList: HotelModel[] = [];
 
@@ -64,10 +65,16 @@ export class AddHotelComponent implements OnInit {
 
   uploadImage(event: any) {
     this.wrongImageFormat = "";
-    this.photo = event.target.files[0]
+    var photo = event.target.files[0]
     const checkExtension = (/\.(gif|jpeg|jpg|png)$/i);
-    if (!checkExtension.test(this.photo.name)) {
+    if (!checkExtension.test(photo.name)) {
       this.wrongImageFormat = "Wrong image format. Please try again!"
+    }
+    else {
+      this.hotelImage = "../../../assets/Hotels/" + photo.name;
+      const formData: FormData = new FormData();
+      formData.append('uploadedFile', photo, photo.name);
+      this.photo = photo.name;
     }
   }
 

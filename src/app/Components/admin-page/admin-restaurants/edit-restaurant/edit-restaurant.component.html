@@ -5,13 +5,15 @@
     <form #f="ngForm" (ngSubmit)="editRestaurant(f)">
         <hr>
         <div class="row components">
-            <div class="col-md-5 m-auto">
+            <div class="col-md-5 m-auto set-photo">
                 <div class="form-group">
-                    <img src="../../../../../assets/Restaurante/restaurant_icon1.jpg" class="image" alt="">
+                    <input type="image" src="{{restaurantImage}}" class="image" alt="" name="photo"
+                    (change)="uploadImage($event)">
                     <input class="upload py-2" type="file" accept=".jpg,.jpef,.png,.gif" id="customFile"
-                        (change)="uploadImage($event)" name="photo" [(ngModel)]="restaurant.photo" required>
+                        (change)="uploadImage($event)" name="photo" required>
                     <div class="file-validation">{{wrongImageFormat}}</div>
-                    <button class="button">Încarcă fotografia</button>
+                    <input class="upload py-2" type="hidden" [(ngModel)]="restaurant.photo" accept=".jpg,.jpef,.png,.gif" id="customFile"
+                        (change)="uploadImage($event)" name="photo" required>
                 </div>
             </div>
 

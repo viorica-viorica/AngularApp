@@ -118,6 +118,7 @@ hr{
     padding-top: 5%;
     padding-bottom: 5%;
     align-items: center;
+    width: 300px;
   }
 
   .profile-form{

@@ -17,6 +17,7 @@ export class EditHotelComponent implements OnInit {
   successMessage!: string;
   failMessage!: string;
   emptyData!: string;
+  hotelImage: string = "";
 
   constructor(private hotelService: HotelServiceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -32,6 +33,7 @@ export class EditHotelComponent implements OnInit {
       .subscribe(
         (data: HotelModel) => {
           this.hotel = data;
+          this.hotelImage = "../../../assets/Hotels/" + this.hotel.photo;
           console.log("loadData", data)
         }
       );
@@ -64,10 +66,16 @@ export class EditHotelComponent implements OnInit {
 
   uploadImage(event: any) {
     this.wrongImageFormat = "";
-    this.hotel.photo = event.target.files[0]
+    var photo = event.target.files[0]
     const checkExtension = (/\.(gif|jpeg|jpg|png)$/i);
-    if (!checkExtension.test(this.hotel.photo.name)) {
+    if (!checkExtension.test(photo.name)) {
       this.wrongImageFormat = "Wrong image format. Please try again!"
+    }
+    else{
+      this.hotelImage = "../../../assets/Hotels/" + photo.name;
+      const formData:FormData=new FormData();
+      formData.append('uploadedFile', photo, photo.name);
+      this.hotel.photo = photo.name;
     }
   }
 

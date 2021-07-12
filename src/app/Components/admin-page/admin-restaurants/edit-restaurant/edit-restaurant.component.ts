@@ -17,6 +17,7 @@ export class EditRestaurantComponent implements OnInit {
   successMessage!: string;
   failMessage!: string;
   emptyData!: string;
+  restaurantImage: string = "";
 
   constructor(private restaurantService: RestaurantServiceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -32,6 +33,7 @@ export class EditRestaurantComponent implements OnInit {
       .subscribe(
         (data: RestaurantModel) => {
           this.restaurant = data;
+          this.restaurantImage = "../../../assets/Restaurante/" + data.photo;
           console.log("loadData", data)
         }
       );
@@ -66,10 +68,16 @@ export class EditRestaurantComponent implements OnInit {
 
   uploadImage(event: any) {
     this.wrongImageFormat = "";
-    this.restaurant.photo = event.target.files[0]
+    var photo = event.target.files[0]
     const checkExtension = (/\.(gif|jpeg|jpg|png)$/i);
-    if (!checkExtension.test(this.restaurant.photo.name)) {
+    if (!checkExtension.test(photo.name)) {
       this.wrongImageFormat = "Wrong image format. Please try again!"
+    }
+    else{
+      this.restaurantImage = "../../../assets/Restaurante/" + photo.name;
+      const formData:FormData=new FormData();
+      formData.append('uploadedFile', photo, photo.name);
+      this.restaurant.photo = photo.name;
     }
   }
 

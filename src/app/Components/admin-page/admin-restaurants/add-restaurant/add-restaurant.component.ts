@@ -23,13 +23,14 @@ export class AddRestaurantComponent implements OnInit {
   schedule!: string;
   latitude!: number;
   longitude!: number;
-  photo!: File;
+  photo!: string;
   restaurantUrl!: string;
   menuUrl!: string;
   wrongImageFormat: String = '';
   successMessage!: string;
   failMessage!: string;
   emptyData!: string;
+  restaurantImage: string = "../../../assets/Restaurante/restaurant_icon1.jpg";
 
   restaurantSaveForm = new FormGroup({
     restaurantName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -44,10 +45,16 @@ export class AddRestaurantComponent implements OnInit {
 
   uploadImage(event: any) {
     this.wrongImageFormat = "";
-    this.photo = event.target.files[0]
+    var photo = event.target.files[0]
     const checkExtension = (/\.(gif|jpeg|jpg|png)$/i);
-    if (!checkExtension.test(this.photo.name)) {
+    if (!checkExtension.test(photo.name)) {
       this.wrongImageFormat = "Wrong image format. Please try again!"
+    }
+    else{
+      this.restaurantImage = "../../../assets/Restaurante/" + photo.name;
+      const formData:FormData=new FormData();
+      formData.append('uploadedFile', photo, photo.name);
+      this.photo = photo.name;
     }
   }
 

@@ -7,11 +7,19 @@
 
         <div class="row">
             <div class="col-md-5 m-auto profile">
-                <img src="../../../assets/profile-photo.jpg" alt="profile photo" class="profile-photo"><br>
-                <div class="user-name" style="text-align: center;">
-                    <h5>{{username}}</h5>
-                </div>
-                <button type="button" class="edit-button">Editează poza de profil</button>
+                <form #editProfilePhoto="ngForm" (ngSubmit)="updatePhotoProfile(editProfilePhoto)">
+                    <input type="image" src="../../../assets/{{currentUser.profilePhoto}}" alt="profile photo"
+                        name="profilePhoto" (change)="uploadImage($event)" class="profile-photo" required><br>
+                    <div class="user-name" style="text-align: center;">
+                        <h5>{{username}}</h5>
+                    </div>
+                    <input class="upload py-2" type="file" accept=".jpg,.jpef,.png,.gif" id="customFile"
+                        (change)="uploadImage($event)" name="profilePhoto" required>
+                    <div class="file-validation">{{wrongImageFormat}}</div>
+                    <input class="upload py-2" type="hidden" [(ngModel)]="currentUser.profilePhoto"
+                        (change)="uploadImage($event)" name="profilePhoto" required>
+                    <button class="button" type="submit">Resetează poza de profil</button>
+                </form>
             </div>
 
             <hr>
@@ -33,15 +41,18 @@
 
                     <div class="row">
                         <label for="first-last-name" class="col-md-3">Nume și Prenume</label>
-                        <input type="text" name="firstLastName" [(ngModel)]="currentUser.firstLastName" class="form-control col-md-7">
+                        <input type="text" name="firstLastName" [(ngModel)]="currentUser.firstLastName"
+                            class="form-control col-md-7">
                     </div>
                     <div class="row">
                         <label for="phone" class="col-md-3">Număr de telefon</label>
-                        <input type="text" name="phoneNumber" [(ngModel)]="currentUser.phoneNumber" class="form-control col-md-7">
+                        <input type="text" name="phoneNumber" [(ngModel)]="currentUser.phoneNumber"
+                            class="form-control col-md-7">
                     </div>
                     <div class="row">
                         <label for="email" class="col-md-3">E-mail</label>
-                        <input type="text" name="email" [(ngModel)]="currentUser.email" class="form-control col-md-7"><br>
+                        <input type="text" name="email" [(ngModel)]="currentUser.email"
+                            class="form-control col-md-7"><br>
                     </div>
 
                     <button type="submit" class="button  update-button">Actualizează datele</button>
@@ -70,7 +81,7 @@
                         <label for="confirm-password" class="col-md-3">Confirmați parola</label>
                         <div class="col-md-8">
                             <input type="password" name="confirm-password" formControlName="confirm"
-                            class="form-control"><br>
+                                class="form-control"><br>
                             <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Confirmarea este
                                 obligatorie</em>
                             <em *ngIf="hasError('confirm', 'mustMatch')">Parolele trebuie să fie asemănătoare</em>

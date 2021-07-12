@@ -3,7 +3,8 @@
         <div class="title">
             <h2>Cazare</h2>
         </div>
-        <div class="row reservation">
+        <hr>
+        <!-- <div class="row reservation">
             <div class="col-md-4 m-auto">
                 <app-carousel></app-carousel>
             </div>
@@ -85,8 +86,8 @@
                 <div class="row choose-button">
                     <button class="button">Caută</button>
                 </div>
-            </div> 
-        </div>
+            </div>
+        </div> -->
     </section>
 
     <section class="second-side" [hidden]="openedHotel">
@@ -96,8 +97,8 @@
         <hr>
         <div class="view-hotels" *ngFor="let hotel of HotelsList">
             <div class="row hotel">
-                <div class="col-md-4 image-hotel">
-                    <img src="../../../assets/Carousel/kronwell.jpg" alt="">
+                <div class="col-md-4 m-auto image-hotel">
+                    <img src="../../../assets/Hotels/{{hotel.photo}}" alt="">
                 </div>
                 <div class="col-md-5 name-hotel">
                     <a href="{{hotel.hotelUrl}}"><h4>{{hotel.name}}</h4></a>

@@ -18,8 +18,8 @@
                             <label>Data rezervării:</label><br>
                         </div>
                         <div class="row calendars">
-                            <input name="date" min="today" max="30-12-2021" required pattern="\d{2}-\d{2}-\d{4}" formControlName="reservationDate" type="date"
-                                    class="calendar">
+                            <input name="date" min="today" max="30-12-2021" required pattern="\d{2}-\d{2}-\d{4}"
+                                formControlName="reservationDate" type="date" class="calendar">
                         </div>
                     </div>
                 </div>
@@ -38,19 +38,16 @@
                     </div>
                 </div>
                 <div class="row reserv-button">
-                    <div class="row reserv-button">
-                        <div class="alert-msg">
-                            <div style="color: red; font-size: 16px">
-                                {{emptyData}}
-                            </div>
-                            <div *ngIf="successMessage" class="alert alert-success" role="alert">
-                                <strong>Minunat!</strong> {{ successMessage }}
-                            </div>
-                            <div *ngIf="failMessage" class="alert alert-danger" role="alert">
-                                <strong>Uups!</strong> {{ failMessage }}
-                            </div>
+                    <div class="alert-msg">
+                        <div style="color: red; font-size: 16px">
+                            {{emptyData}}
                         </div>
-                        <button type="submit" class="button">Rezervă</button>
+                        <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                            <strong>Minunat!</strong> {{ successMessage }}
+                        </div>
+                        <div *ngIf="failMessage" class="alert alert-danger" role="alert">
+                            <strong>Uups!</strong> {{ failMessage }}
+                        </div>
                     </div>
                     <button type="submit" class="button" (click)="reserveRestaurant()">Rezervă</button>
                 </div>

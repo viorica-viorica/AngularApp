@@ -7,5 +7,5 @@ export class TouristicObjectiveModel {
     latitude!: number;
     longitude!: number;
     objectiveUrl!: string;
-    photo!: File;
+    photo!: string;
 }

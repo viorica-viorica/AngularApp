@@ -17,6 +17,7 @@ export class EditObjectiveComponent implements OnInit {
   successMessage!: string;
   failMessage!: string;
   emptyData!: string;
+  objectiveImage: string = "";
 
   constructor(private objectiveService: TouristicObjectiveServiceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -32,6 +33,7 @@ export class EditObjectiveComponent implements OnInit {
       .subscribe(
         (data: TouristicObjectiveModel) => {
           this.objective = data;
+          this.objectiveImage = "../../../assets/Objectives/" + data.photo;
           console.log("loadData", data)
         }
       );
@@ -66,10 +68,16 @@ export class EditObjectiveComponent implements OnInit {
 
   uploadImage(event: any) {
     this.wrongImageFormat = "";
-    this.objective.photo = event.target.files[0]
+    var photo = event.target.files[0]
     const checkExtension = (/\.(gif|jpeg|jpg|png)$/i);
-    if (!checkExtension.test(this.objective.photo.name)) {
+    if (!checkExtension.test(photo.name)) {
       this.wrongImageFormat = "Wrong image format. Please try again!"
+    }
+    else{
+      this.objectiveImage = "../../../assets/Objectives/" + photo.name;
+      const formData:FormData=new FormData();
+      formData.append('uploadedFile', photo, photo.name);
+      this.objective.photo = photo.name;
     }
   }
 

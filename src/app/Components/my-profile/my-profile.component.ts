@@ -7,6 +7,7 @@ import { AuthService } from './../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { PasswordConfirmationValidatorService } from 'src/app/Services/password-service/password-confirmation-validator.service';
 import { ResetPassword } from 'src/app/Models/password/reset-password';
+import { UserProfilePhoto } from 'src/app/Models/users-model/UserProfilePhoto';
 
 @Component({
   selector: 'app-my-profile',
@@ -23,6 +24,7 @@ export class MyProfileComponent implements OnInit {
   user = new UsersModel();
   public editProfileForm!: FormGroup;
   public resetPasswordForm!: FormGroup;
+  public editProfilePhoto!: FormGroup;
   public showSuccessProfile!: boolean;
   public showSuccessPass!: boolean;
   public showErrorProfile!: boolean;
@@ -30,6 +32,8 @@ export class MyProfileComponent implements OnInit {
   public errorMessage!: string;
   private _email!: string;
   private id!: number;
+  wrongImageFormat!: string;
+  profilePhoto!: string;
 
   toggleEditProfile() {
     this.isHiddenEditProfileForm = false;
@@ -82,10 +86,10 @@ export class MyProfileComponent implements OnInit {
       );
   }
 
-  public updateUser (f: NgForm) {
+  public updateUser(f: NgForm) {
     this.showErrorProfile = this.showSuccessProfile = false;
 
-    const updateUser = {...f.value}
+    const updateUser = { ...f.value }
     const updateUserProfile: UserProfil = {
       firstLastName: updateUser.firstLastName,
       phoneNumber: updateUser.phoneNumber,
@@ -93,25 +97,56 @@ export class MyProfileComponent implements OnInit {
       userId: this.id
     }
 
-    console.log(updateUserProfile);
+    console.log("update user porfile", updateUserProfile);
     this.userService.updateUser('UpdateUser', updateUserProfile)
-    .subscribe(_ => {
-      this.showSuccessProfile = true;
-      setTimeout(() => {
-        this.showSuccessProfile = false;
-      },
-        2000
-      )
-    },
-      (_error) => {
-        this.showErrorProfile = true;
-        this.errorMessage = "A apărut o eroare. Reîncercați!";
+      .subscribe(_ => {
+        this.showSuccessProfile = true;
         setTimeout(() => {
-          this.showErrorProfile = false;
+          this.showSuccessProfile = false;
         },
           2000
         )
-      })
+      },
+        (_error) => {
+          this.showErrorProfile = true;
+          this.errorMessage = "A apărut o eroare. Reîncercați!";
+          setTimeout(() => {
+            this.showErrorProfile = false;
+          },
+            2000
+          )
+        })
+  }
+
+  public updatePhotoProfile(f: NgForm) {
+    this.showErrorProfile = this.showSuccessProfile = false;
+
+    const updateUser = { ...f.value }
+    console.log("update user", updateUser)
+    const updateUserProfile: UserProfilePhoto = {
+      profilePhoto: updateUser.profilePhoto,
+      userId: this.id
+    }
+
+    console.log("photo", updateUserProfile);
+    this.userService.updateProfilePhoto('UpdateProfilePhoto', updateUserProfile)
+      .subscribe(_ => {
+        this.showSuccessProfile = true;
+        setTimeout(() => {
+          this.showSuccessProfile = false;
+        },
+          2000
+        )
+      },
+        (_error) => {
+          this.showErrorProfile = true;
+          this.errorMessage = "A apărut o eroare. Reîncercați!";
+          setTimeout(() => {
+            this.showErrorProfile = false;
+          },
+            2000
+          )
+        })
   }
 
   public validateControl = (controlName: string) => {
@@ -135,11 +170,11 @@ export class MyProfileComponent implements OnInit {
     this.userService.resetPassword('ResetPassword', resetPassDto)
       .subscribe(_ => {
         this.showSuccessPass = true;
-          setTimeout(() => {
-            this.showSuccessPass = false;
-          },
-            2000
-          )
+        setTimeout(() => {
+          this.showSuccessPass = false;
+        },
+          2000
+        )
       },
         (_error) => {
           this.showErrorPass = true;
@@ -151,4 +186,19 @@ export class MyProfileComponent implements OnInit {
           )
         })
   }
+
+  uploadImage(event: any) {
+    this.wrongImageFormat = "";
+    var photo = event.target.files[0]
+    const checkExtension = (/\.(gif|jpeg|jpg|png)$/i);
+    if (!checkExtension.test(photo.name)) {
+      this.wrongImageFormat = "Wrong image format. Please try again!"
+    }
+    else {
+      const formData: FormData = new FormData();
+      formData.append('uploadedFile', photo, photo.name);
+      this.currentUser.profilePhoto = photo.name;
+    }
+  }
+
 }

@@ -2,7 +2,8 @@
     <mat-sidenav #sidenav mode="side" [(opened)]="opened">
         <div class="sidenav-menu">
             <div style="text-align: center;">
-                <img src="../../../assets/profile-photo.jpg" class="profile-image">
+                <img *ngIf="!isLoggedIn" src="../../../assets/profile-photo.jpg" class="profile-image">
+                <img *ngIf="isLoggedIn" src="../../../assets/{{currentUser.profilePhoto}}" class="profile-image" alt="">
                 <h4 *ngIf="!isLoggedIn">Nume utilizator</h4>
                 <h4 *ngIf="isLoggedIn">{{firstLastName}}</h4>
             </div>

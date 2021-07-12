@@ -58,3 +58,11 @@
     hr{
       background-color: white;
     }
+
+    .set-photo{
+      width: 100%;
+    }
+
+    .set-photo .image{
+      width: 100%;
+    }

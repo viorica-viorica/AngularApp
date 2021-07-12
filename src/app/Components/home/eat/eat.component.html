@@ -12,7 +12,7 @@
                 <ng-container *ngSwitchCase="'single'">
                     <mdb-carousel-item *ngFor="let restaurant of restaurantsList">
                         <mdb-card class="my-1">
-                            <mdb-card-img src="../../../../assets/Restaurante/restaurant_icon1.jpg"
+                            <mdb-card-img src="../../../../assets/Restaurante/{{restaurant.photo}}"
                                 alt="Card image cap">
                             </mdb-card-img>
                             <mdb-card-body>
@@ -35,7 +35,7 @@
                     <mdb-carousel-item *ngFor="let item of slides; let i = index">
                         <div class="col-md-4" *ngFor="let restaurant of item; let restaurantIndex = index">
                             <mdb-card class="my-1">
-                                <mdb-card-img src="../../../../assets/Restaurante/restaurant_icon1.jpg"
+                                <mdb-card-img src="../../../../assets/Restaurante/{{restaurant.photo}}"
                                     alt="Card image cap">
                                 </mdb-card-img>
                                 <mdb-card-body>

@@ -1,3 +1,4 @@
+import { UserProfilePhoto } from './../../Models/users-model/UserProfilePhoto';
 import { UserProfil } from './../../Models/users-model/user-profil';
 import { UserLogin } from './../../Models/users-model/user-login.model';
 import { UsersModel } from './../../Models/users-model/users-model.model';
@@ -36,7 +37,7 @@ export class UsersServiceService {
     newUser.latitude = user.latitude;
     newUser.longitude = user.longitude;
     newUser.role = user.role;
-    // newUser.profilePhoto = user.profilePhoto;
+    newUser.profilePhoto = user.profilePhoto;
     return this.http.post<UsersModel>(this.APIUrl, newUser);
   }
 
@@ -55,20 +56,16 @@ export class UsersServiceService {
     return this.http.post(this.createCompleteRoute(route, this.APIUrl), body);
   }
 
-  // updateUser(id: number, user: UserProfil) {
-  //   return this.http.put(`${this.APIUrl}/${id}`, user);
-  // }
-
   public updateUser = (route: string, user: UserProfil) => {
     return this.http.put(this.createCompleteRoute(route, this.APIUrl), user);
   }
 
-  deleteUser(id: number): Observable<UsersModel> {
-    return this.http.delete<UsersModel>(`${this.APIUrl}/${id}`);
+  public updateProfilePhoto = (route: string, body: UserProfilePhoto) => {
+    return this.http.put(this.createCompleteRoute(route, this.APIUrl), body);
   }
 
-  uploadPhoto(val: any): Observable<UsersModel> {
-    return this.http.post<UsersModel>(this.APIUrl + '/SaveFile', val);
+  deleteUser(id: number): Observable<UsersModel> {
+    return this.http.delete<UsersModel>(`${this.APIUrl}/${id}`);
   }
 
   private createCompleteRoute = (route: string, envAddress: string) => {

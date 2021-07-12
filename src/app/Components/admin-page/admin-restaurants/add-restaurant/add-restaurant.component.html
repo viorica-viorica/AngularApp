@@ -2,48 +2,50 @@
     <div class="form-title">
         <h4>Adaugă un nou restaurant</h4>
     </div>
-    <form novalidate autocomplete="off" [formGroup]="restaurantSaveForm"><hr>
+    <form novalidate autocomplete="off" [formGroup]="restaurantSaveForm">
+        <hr>
         <div class="row components">
-            <div class="col-md-5 m-auto">
+            <div class="col-md-5 m-auto restaurantImage">
                 <div class="form-group">
-                    <img src="../../../../../assets/Restaurante/restaurant_icon1.jpg" class="image" alt="">        
+                    <input type="image" src="{{restaurantImage}}" class="image" alt="" name="photo"
+                        (change)="uploadImage($event)">
                     <input class="upload py-2" type="file" accept=".jpg,.jpef,.png,.gif" id="customFile"
                         (change)="uploadImage($event)" formControlName="restaurantPhoto" required>
                     <div class="file-validation">{{wrongImageFormat}}</div>
-                    <button class="button">Încarcă fotografia</button>
                 </div>
             </div>
-            
+
             <div class="add-hotel col-md-7 m-auto">
                 <div class="form-group">
-                    <input type="text" name="restaurant_name" [(ngModel)]="name" formControlName="restaurantName" 
-                    placeholder="Nume restaurant" class="form-control" required>
+                    <input type="text" name="restaurant_name" [(ngModel)]="name" formControlName="restaurantName"
+                        placeholder="Nume restaurant" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="restaurant_address" [(ngModel)]="address" formControlName="restaurantAddress" 
-                    placeholder="Adresa" class="form-control" required>
+                    <input type="text" name="restaurant_address" [(ngModel)]="address"
+                        formControlName="restaurantAddress" placeholder="Adresa" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="restaurant_schedule" [(ngModel)]="schedule" formControlName="restaurantSchedule" 
-                    placeholder="Program" class="form-control" required>
+                    <input type="text" name="restaurant_schedule" [(ngModel)]="schedule"
+                        formControlName="restaurantSchedule" placeholder="Program" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="restaurant_latitude" [(ngModel)]="latitude" formControlName="restaurantLatitude" 
-                    placeholder="Latitudine" class="form-control" required>
+                    <input type="text" name="restaurant_latitude" [(ngModel)]="latitude"
+                        formControlName="restaurantLatitude" placeholder="Latitudine" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="restaurant_longitude" [(ngModel)]="longitude" formControlName="restaurantLongitude"
-                    placeholder="Longitudine" class="form-control" required>
+                    <input type="text" name="restaurant_longitude" [(ngModel)]="longitude"
+                        formControlName="restaurantLongitude" placeholder="Longitudine" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="restaurant_site" [(ngModel)]="restaurantUrl" formControlName="restaurantUrl"
-                    placeholder="Site-ul restaurantului" class="form-control" required>
+                    <input type="text" name="restaurant_site" [(ngModel)]="restaurantUrl"
+                        formControlName="restaurantUrl" placeholder="Site-ul restaurantului" class="form-control"
+                        required>
                 </div>
                 <div class="form-group">
                     <input type="text" name="restaurant_menu" [(ngModel)]="menuUrl" formControlName="restaurantMenuUrl"
-                    placeholder="Meniu" class="form-control" required>
+                        placeholder="Meniu" class="form-control" required>
                 </div>
-        
+
                 <div class="form-group">
                     <div class="alert-msg">
                         <div style="color: red; font-size: 16px">
@@ -56,10 +58,10 @@
                             <strong>Uups!</strong> {{ failMessage }}
                         </div>
                     </div>
-        
+
                     <button type="submit" (click)="checkRestaurant()" class="button">Adaugă restaurant</button>
                 </div>
             </div>
-        </div>    
-    </form>    
+        </div>
+    </form>
 </div>
